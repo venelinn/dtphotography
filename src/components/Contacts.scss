@@ -1,0 +1,123 @@
+.section--contact {
+  h3 {
+    color: white;
+  }
+  .section-intro h5 {
+    color: var(--base-color);
+  }
+  form {
+    margin-top: 0;
+    margin-bottom: 3rem;
+  }
+}
+
+/* contact form */
+.contact-form {
+  max-width: var(--page-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  @include placeholder {
+    color: rgba(255, 255, 255, 0.3);
+  }
+  fieldset {
+    border: none;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 0px 1000px #151515 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+.form-field {
+  input,
+  textarea {
+    display: block;
+    border: 0;
+    outline: none;
+    max-width: 100%;
+    background: transparent;
+    border-bottom: 1px solid currentColor;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem 1rem;
+    &:focus {
+      border-color: var(--base-color);
+      color: #fff;
+    }
+    &.error {
+      border-bottom-color: var(--base-color);
+    }
+  }
+  span {
+    position: absolute;
+    text-indent: -9999px;
+  }
+  textarea {
+    min-height: 10rem;
+  }
+  .submitform {
+    display: block;
+    letter-spacing: 0.2rem;
+    width: 100%;
+    background: var(--base-color);
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    border: none;
+    border-radius: 44px;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    padding: 0.5rem;
+    &:hover,
+    &:focus {
+      background: #8b0000;
+    }
+    @media (min-width: $smedium + 1) {
+      margin-top: 4rem;
+      line-height: 4rem;
+      font-size: 1.3rem;
+    }
+    @media (max-width: $smedium) {
+      margin-top: 2rem;
+      line-height: 3rem;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.contact-info {
+  margin: 4.8rem auto 0;
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.contact-info .collapse {
+  padding: 0;
+}
+.contact-info .icon {
+  margin-bottom: 2.1rem;
+}
+.contact-info .icon i {
+  font-size: 4.2rem;
+  color: #ffffff;
+}
+.contact-info h5 {
+  color: var(--base-color);
+}

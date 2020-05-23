@@ -1,0 +1,235 @@
+//@import 'fonts';
+@import 'animation';
+@import 'theme';
+
+@import 'reset';
+
+body {
+  font-family: var(--body-font);
+  font-size: 1.2rem;
+  font-weight: normal;
+  line-height: 1.4;
+  background-color: var(--bg-color);
+}
+
+/**
+ * ===================================================================
+ * Base style
+ *
+ * -------------------------------------------------------------------
+ */
+
+a {
+  color: inherit;
+  transition: all 0.3s ease-in-out;
+}
+a:hover,
+a:focus,
+a:active {
+  outline: 0;
+}
+
+/**
+ * ===================================================================
+ * Typography & general theme styles
+ *
+ * -------------------------------------------------------------------
+ */
+
+h1,
+.title--h1 {
+  @include h1;
+}
+
+h2,
+.title--h2 {
+  @include h2;
+}
+
+h3,
+.title--h3 {
+  @include h3;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--header-font);
+  margin-bottom: 1.5rem;
+}
+
+.button {
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  display: inline-block;
+  letter-spacing: 0.2rem;
+  font-weight: bold;
+  border-radius: 44px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  border: 2px solid transparent;
+  padding: 1rem 2rem;
+  &:hover,
+  &:focus {
+    border-color: var(--base-color);
+    color: var(--base-color);
+  }
+}
+
+.btn__group {
+  display: flex;
+  justify-content: center;
+  li {
+    + li {
+      margin-left: -2px;
+      position: relative;
+    }
+    &:nth-last-child(2),
+    &:nth-last-child(2) ~ li {
+      &:first-child {
+        .button {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+      }
+      &:last-child {
+        .button {
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      }
+    }
+  }
+}
+
+/// HERO
+
+.not-found {
+  height: 100vh;
+  height: -webkit-fill-available;
+  background-color: var(--bg-even);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    font-size: calc(16px + 32vw)
+  }
+  p {
+    opacity: .5;
+  }
+  a {
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+}
+
+/**
+ * ===================================================================
+ * Misc Helper Styles
+ *
+ * -------------------------------------------------------------------
+ */
+
+.hide,
+.hidden {
+  display: none;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  border: 0;
+  background: none;
+  outline: none;
+  padding: 0;
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+// -----------------------------------
+// Accessibility
+// -----------------------------------
+
+.sr-only {
+	position:absolute;
+	width:1px;
+	height:1px;
+	padding:0;
+	margin:-1px;
+	overflow:hidden;
+	clip:rect(0,0,0,0);
+	border:0
+}
+
+.is-accessible {
+	border: 0;
+	height: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 0;
+}
+
+
+/**
+ * loader animation
+ * ---------------------------------------------------------------
+ */
+.s-loader {
+  margin: 1.2rem auto 3rem;
+  width: 70px;
+  text-align: center;
+  transform: translateX(0.45rem);
+  > div {
+    width: 1rem;
+    height: 1rem;
+    background-color: #ffffff;
+    border-radius: 100%;
+    display: inline-block;
+    margin-right: 0.9rem;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  }
+  .bounce1 {
+    animation-delay: -0.32s;
+  }
+  .bounce2 {
+    animation-delay: -0.16s;
+  }
+}
+@-webkit-keyframes sk-bouncedelay {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+@keyframes sk-bouncedelay {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}

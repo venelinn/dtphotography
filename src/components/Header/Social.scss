@@ -1,0 +1,27 @@
+.social__list {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  li {
+    display: inline-block;
+    margin: 0 1rem;
+    padding: 0;
+  }
+  a {
+    opacity: 1;
+    &:hover,
+    &:focus {
+      opacity: 0.6;
+    }
+  }
+  svg {
+    fill: currentColor;
+    width: var(--social-size, 1.5rem);
+    height: var(--social-size, 1.5rem);
+    @media (min-width: $smedium + 1) {
+      --social-width: 2rem;
+    }
+  }
+}
