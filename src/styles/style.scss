@@ -129,7 +129,17 @@ h4  {
       text-decoration: none;
     }
   }
+}
 
+.about {
+  display: grid;
+  @media (min-width: $medium + 1) {
+    grid-gap: 3rem;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: $medium) {
+    grid-gap: 2rem;
+  }
 }
 
 /**

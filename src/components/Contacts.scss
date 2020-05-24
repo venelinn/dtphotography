@@ -13,9 +13,6 @@
 
 /* contact form */
 .contact-form {
-  max-width: var(--page-max-width);
-  margin-left: auto;
-  margin-right: auto;
   @include placeholder {
     color: rgba(255, 255, 255, 0.3);
   }
@@ -81,17 +78,17 @@ input::-ms-clear {
     text-transform: uppercase;
     text-align: center;
     border: none;
-    border-radius: 44px;
+    border-radius: 8px;
     transition: all 0.3s ease-in-out;
     font-weight: bold;
     padding: 0.5rem;
     &:hover,
     &:focus {
-      background: #8b0000;
+      background: #336699;
     }
     @media (min-width: $smedium + 1) {
       margin-top: 4rem;
-      line-height: 4rem;
+      line-height: 2.5rem;
       font-size: 1.3rem;
     }
     @media (max-width: $smedium) {

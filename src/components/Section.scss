@@ -1,8 +1,12 @@
 .section {
+  --inner-padding: 4%;
   width: 100%;
+  &__inner {
+    padding-left: var(--inner-padding);
+    padding-right: var(--inner-padding);
+  }
+  &--full {
+    --inner-padding: 0;
+  }
 }
 
-.section__inner {
-  padding-left: 4%;
-  padding-right: 4%;
-}

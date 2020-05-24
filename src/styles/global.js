@@ -8,7 +8,7 @@ export { BebasKai, JostTTF, JostWOFF2, };
 
 export default createGlobalStyle`
   :root {
-    --base-color: #ff0100;
+    --base-color: #48a7d1;
     --color-dark: #313131;
     --color-light: #444;
     --color-white: 255,255,255;

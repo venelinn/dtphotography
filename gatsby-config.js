@@ -14,7 +14,7 @@ module.exports = {
     shareImage: '${__dirname}/images/share.jpg', // Open Graph Default Share Image. 1200x1200 is recommended
     shareImageWidth: 900, // Change to the width of your default share image
     shareImageHeight: 600, // Change to the height of your default share image
-    siteLogo: '${__dirname}/images/favicons/favicon-512x512.png', // Logo used for SEO, RSS, and App manifest
+    siteLogo: '${__dirname}/images/favicons/android-chrome-512x512.png', // Logo used for SEO, RSS, and App manifest
     backgroundColor: '#e9e9e9', // Used for Offline Manifest
     themeColor: '#000000' // Used for Offline Manifest
   },
@@ -73,7 +73,7 @@ module.exports = {
         description: `Photographer`,
         display: `minimal-ui`,
         lang: `en-US`,
-        icon: `${__dirname}/src/images/vca-icon.png` // This path is relative to the root of the site.
+        icon: `${__dirname}/src/images/dtp-icon.png` // This path is relative to the root of the site.
       }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

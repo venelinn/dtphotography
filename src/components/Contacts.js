@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Fade from 'react-reveal/Fade';
+//import Fade from 'react-reveal/Fade';
 
 import './Contacts.scss';
 
@@ -90,7 +90,7 @@ const Contacts = props => {
             Don’t fill this out: <input name='bot' onChange={handleChange} />
           </label>
         </p>
-        <Fade bottom>
+
           <p className='form-field'>
             <label>
               <span>Name</span>
@@ -137,7 +137,6 @@ const Contacts = props => {
               Send
             </button>
           </p>
-        </Fade>
         <Modal visible={modal} status={status}>
           <p>
             {status
