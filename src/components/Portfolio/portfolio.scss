@@ -111,11 +111,10 @@
 .folio__item__title {
   margin-bottom: 0;
   padding: 0 2rem;
-  @media (min-width: $medium + 1) {
-    font-size: 2rem;
-  }
+  font-size: var(--folio-title-size, 2rem);
   @media (max-width: $medium) {
-    font-size: 1.5rem;
+    --folio-title-size: 1.5rem;
+    opacity: .9;
   }
 }
 

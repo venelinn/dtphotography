@@ -9,8 +9,7 @@ import Portfolio from '../components/Portfolio';
 
 
 
-const IndexPage = props => {
-  //const sections = props.data.sectionsData.edges[0].node.modules;
+const IndexPage = () => {
 
   return (
     <Layout bodyClass="home">
@@ -33,30 +32,3 @@ IndexPage.propTypes = {
   data: PropTypes.object
 };
 
-// export const query = graphql`
-//   query Index {
-//     headerData: contentfulIntro {
-//       title
-//       description
-//       slug
-//       sectionTitle
-//       modules {
-//         ... on ContentfulHero {
-//           title
-//           image {
-//             fluid(maxWidth: 1400, quality: 90) {
-//               ...GatsbyContentfulFluid_withWebp_noBase64
-//             }
-//           }
-//           media {
-//             title
-//             description
-//             fluid(maxWidth: 1400, quality: 90) {
-//               ...GatsbyContentfulFluid_withWebp_noBase64
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;

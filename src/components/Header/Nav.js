@@ -6,11 +6,11 @@ import Link from 'gatsby-link'
 import './Nav.scss';
 
 const query = graphql`
-  query Menu {
-    data: allContentfulPage(sort:  {fields: [title], order: DESC}) {
+  query Navigation {
+    data: allContentfulPage(sort:  {fields: [menu], order: DESC}) {
       edges {
         node {
-          title
+          menu
           slug
         }
       }
@@ -20,15 +20,15 @@ const query = graphql`
 
 const Nav = () => {
   const menuData = useStaticQuery(query)
-  const menu = menuData.data.edges.map(item => item.node);
+  const nav = menuData.data.edges.map(item => item.node);
   return (
     <nav className="nav nav-metas">
       <span className="is-accessible">Meta navigation</span>
       <ul className="nav-menu">
-        {menu.map((item, index) => {
+        {nav.map((item, index) => {
           return (
             <li key={index}>
-              <Link className="link" to={`/${item.slug}`} activeClassName="link--active">{item.title}</Link>
+              <Link className="link" to={`/${item.slug}`} activeClassName="link--active">{item.menu}</Link>
             </li>
           )
         })}

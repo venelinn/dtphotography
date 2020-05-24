@@ -10,7 +10,7 @@ const Section = ({
   ...props
 }) => (
   <section
-    className={`section`}
+    className={`section section--${className}`}
     data-theme={theme}
     {...props}
   >
@@ -26,7 +26,7 @@ Section.propTypes = {
 };
 
 Section.defaultProps = {
-  className: ''
+  className: 'root'
 };
 
 export default Section;

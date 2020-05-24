@@ -4,18 +4,12 @@ import Section from '../Section';
 import Nav from './Nav';
 import Logo from './Logo'
 import Social from './Social';
-import { useSpring } from "react-spring";
-//import { useCurrentWidth } from '../../hooks/use-width'
 
 import './header.scss';
 
 const Header = () => {
 
   const [menuVisible, setMenuVisible] = useState(false);
-  const menuAnimation = useSpring({
-    transform: menuVisible ? `translateY(0)` : `translateY(-100%)`,
-    opacity: menuVisible ? 1 : 0
-  });
 
   const openOverlay = () => {
     setMenuVisible(!menuVisible)
@@ -23,7 +17,7 @@ const Header = () => {
 
   return (
     <Section>
-      <header className='header'>
+      <header className={`header menu--${menuVisible ? 'on' : 'off'}`}>
         <div className="header__left">
           <div className={`menu--${menuVisible ? 'on' : 'off'}`}>
             <div className="top-nav__icon">

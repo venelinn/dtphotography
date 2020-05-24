@@ -1,7 +1,12 @@
 .footer {
   text-align: center;
   background-color: var(--bg-odd);
-  padding: 2rem 0;
+  @media (min-width: $smedium + 1) {
+    padding: 2rem 0;
+  }
+  @media (max-width: $smedium) {
+    padding: 1rem 0;
+  }
 }
 
 .copyright {

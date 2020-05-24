@@ -20,12 +20,16 @@
   }
   &__right {
     justify-content: flex-end;
+
   }
 }
 
 .logo {
   svg {
-    width: 250px;
+    width: var(--logo-width, 200px);
+    @media (min-width: $smedium + 1) {
+      --logo-width: 250px;
+    }
   }
   path {
     fill: var(--text-color);

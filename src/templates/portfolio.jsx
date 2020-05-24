@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Img from "gatsby-image"
@@ -27,6 +27,11 @@ const PortfolioTemplate = ({ data}) => {
     images,
     desc
   } = data.contentfulPortfolio
+  const [descExpand, setDescExpand] = useState(false);
+  const expandText = () => {
+    setDescExpand(!descExpand)
+  };
+
   return (
     <Layout bodyClass="portfolio">
       <SEO
@@ -39,7 +44,13 @@ const PortfolioTemplate = ({ data}) => {
         <div className="work__header">
           <h1 className="title title--h1 work__title">{title}</h1>
           {desc && (
-          <div class="work__desc">{desc.description}</div>
+          <div
+            className={`work__desc work__desc--${descExpand ? 'on' : 'off'}`}
+            role="button"
+            tabIndex={0}
+            onClick={() => expandText()}
+            onKeyDown={() => expandText()}
+            >{desc.description}</div>
           )}
         </div>
         <div className="gallery">

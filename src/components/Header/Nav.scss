@@ -1,9 +1,5 @@
 .nav-menu {
   font-family: var(--header-font);
-  display: flex;
-  li + li {
-    margin-left: 1rem;
-  }
   .link {
     &:not(.link--active) {
       opacity: .6;
@@ -12,10 +8,21 @@
       }
     }
   }
+  @media (min-width: $smedium + 1) {
+    display: flex;
+    li + li {
+      margin-left: 1rem;
+    }
+  }
+  @media (max-width: $smedium) {
+    display: grid;
+    grid-gap: 1rem;
+
+  }
 }
 
 .nav {
-  @media (max-width: $medium) {
+  @media (max-width: $smedium) {
     position: absolute;
     z-index: 1;
     width: 100%;
@@ -29,7 +36,12 @@
     background-color: #000;
     font-size: 2.5rem;
     font-weight: var(--fw-bold);
-
+    transform: var(--nav-translate, translateY(-100%));
+    opacity: var(--nav-opacity, 0);
+    .menu--on & {
+      --nav-translate: translateY(0);
+      --nav-opacity: 1;
+    }
   }
 }
 
@@ -82,14 +94,14 @@
     .top-nav__icon {
       position: relative;
       z-index: 2;
-      @media (min-width: $medium + 1) {
+      @media (min-width: $smedium + 1) {
         display: none;
       }
     }
   }
   &--off {
     .top-nav__icon {
-      @media (min-width: $medium + 1) {
+      @media (min-width: $smedium + 1) {
         display: none;
       }
     }
@@ -107,7 +119,7 @@
     display: block;
     width: var(--size, 100%);
     height: 1px;
-    margin-top: var(--line-space, 4px);
+    margin-top: var(--line-space, 5px);
     background-color: currentColor;
     border-radius: 1px;
     transition: transform .3s ease;
