@@ -1,8 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 
 import BebasKai from '../fonts/BebasKai/BebasKai.woff';
+import JostTTF from '../fonts/jost/Jost-400-Book.ttf';
+import JostWOFF2 from '../fonts/jost/Jost-400-Book.woff2';
 
-export { BebasKai };
+export { BebasKai, JostTTF, JostWOFF2, };
 
 export default createGlobalStyle`
   :root {
@@ -11,11 +13,19 @@ export default createGlobalStyle`
     --color-light: #444;
     --color-white: 255,255,255;
     --color-black: 0,0,0;
-    --page-max-width: 850px;
     --text-in: cubic-bezier(.31,.11,.12,.99);
     --primary-ease: var(--custom-ease-1);
-    --body-font: 'BebasKai', serif;
+    --body-font: 'Jost', serif;
     --header-font: 'BebasKai', serif;
+  }
+  @font-face {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: normal;
+    font-display: fallback;
+    src: local("Jost"),
+        url(${JostTTF}) format("ttf"),
+        url(${JostWOFF2}) format("woff2");
   }
   @font-face {
     font-family: "BebasKai";

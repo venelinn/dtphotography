@@ -1,4 +1,5 @@
 .nav-menu {
+  font-family: var(--header-font);
   display: flex;
   li + li {
     margin-left: 1rem;
@@ -112,7 +113,6 @@
     transition: transform .3s ease;
     &:nth-child(even) {
       --size: 70%;
-      margin-left: auto;
       .menu--on & {
         --size: 0;
       }

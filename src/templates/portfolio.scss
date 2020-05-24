@@ -1,0 +1,59 @@
+.work__header {
+  text-align: center;
+  margin: 2rem 0 5rem;
+}
+
+.work__desc {
+  opacity: .6;
+  @media (min-width: $smedium + 1) {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+
+.gallery {
+  // display: grid;
+  // grid-gap: var(--portfolio-gap, 8px);
+  // @media (min-width: $smedium + 1) {
+  //   grid-template-columns: repeat(2, 1fr);
+  //   justify-content: center;
+  //   grid-auto-rows: 1fr;
+  //   &__item {
+  //     &--portrait {
+  //       grid-column: auto / span 2;
+  //     }
+  //   }
+  // }
+  --space: 8px;
+  display: flex;
+  overflow: hidden;
+  flex-wrap: wrap;
+  margin: - calc(var(--space) / 2);
+  &__item {
+    @media (min-width: $smedium + 1) {
+      flex-basis: 50%;
+      max-width: 50%;
+      flex-grow: 0;
+      flex-shrink: 0;
+      padding: var(--space);
+      &--portrait {
+        flex-basis: 100%;
+        max-width: 100%;
+      }
+    }
+    padding: 5px;
+  }
+  //@include flexbin(300px, 1px);
+  // // Desktop devices
+  // @include flexbin($flexbin-row-height, $flexbin-space);
+
+  // // Tablet devices
+  // @media (max-width: $flexbin-tablet-max) {
+  //   @include flexbin($flexbin-row-height-tablet, $flexbin-space-tablet);
+  // }
+
+  // // Phone devices
+  // @media (max-width: $flexbin-phone-max) {
+  //   @include flexbin($flexbin-row-height-phone, $flexbin-space-phone);
+  // }
+}

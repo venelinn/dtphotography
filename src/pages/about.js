@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import Layout from '../components/Layout';
 import SEO from '../components/Seo';
-//import Section from '../components/Section';
+import Section from '../components/Section';
 
 
 
@@ -19,6 +19,9 @@ const AboutPage = props => {
           `photography`
         ]}
       />
+      <Section>
+        About page
+      </Section>
     </Layout>
   );
 };

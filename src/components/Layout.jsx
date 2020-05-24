@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet'
 import Header from './Header';
-//import Footer from './Footer';
+import Footer from './Footer';
 import GlobalStyle from '../styles/global';
 
 import '../styles/style.scss';
@@ -23,8 +23,8 @@ const Layout = ({children, bodyClass}) => {
       <GlobalStyle />
         <ThemeClassOnBody bodyClass={bodyClass} />
        <Header />
-       {/* <Footer /> */}
       { children }
+       <Footer />
     </>
   )
 };

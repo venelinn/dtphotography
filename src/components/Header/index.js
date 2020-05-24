@@ -11,46 +11,43 @@ import './header.scss';
 
 const Header = () => {
 
-    let width;
+  const [menuVisible, setMenuVisible] = useState(false);
+  const menuAnimation = useSpring({
+    transform: menuVisible ? `translateY(0)` : `translateY(-100%)`,
+    opacity: menuVisible ? 1 : 0
+  });
 
-    const [menuVisible, setMenuVisible] = useState(false);
-    const menuAnimation = useSpring({
-      transform: menuVisible ? `translateY(0)` : `translateY(-100%)`,
-      opacity: menuVisible ? 1 : 0
-    });
-
-    const openOverlay = () => {
-      setMenuVisible(!menuVisible)
-    };
+  const openOverlay = () => {
+    setMenuVisible(!menuVisible)
+  };
 
   return (
-    <Section className='header'>
-      <div className="header__left">
-        <div className={`menu--${menuVisible ? 'on' : 'off'}`}>
-          <div className="top-nav__icon">
-            <button
-              className="burger"
-              onClick={() => openOverlay()}
-              aria-label="Menu"
-              aria-controls="navigation"
-              >
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
+    <Section>
+      <header className='header'>
+        <div className="header__left">
+          <div className={`menu--${menuVisible ? 'on' : 'off'}`}>
+            <div className="top-nav__icon">
+              <button
+                className="burger"
+                onClick={() => openOverlay()}
+                aria-label="Menu"
+                aria-controls="navigation"
+                >
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+            <Nav/>
           </div>
-          <Nav
-            style={width <= 800 ? menuAnimation : null}
-          />
         </div>
-      </div>
-      <div className="header__center logo">
-        <Link to="/"><Logo /></Link>
-      </div>
-      <div className="header__right">
-
-        <Social />
-      </div>
+        <div className="header__center logo">
+          <Link to="/"><Logo /></Link>
+        </div>
+        <div className="header__right">
+          <Social />
+        </div>
+      </header>
     </Section>
   );
 };

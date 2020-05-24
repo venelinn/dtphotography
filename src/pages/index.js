@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 
 import Layout from '../components/Layout';
 import SEO from '../components/Seo';
-//import Section from '../components/Section';
+import Section from '../components/Section';
+import Portfolio from '../components/Portfolio';
 
 
 
@@ -12,13 +13,16 @@ const IndexPage = props => {
   //const sections = props.data.sectionsData.edges[0].node.modules;
 
   return (
-    <Layout  bodyClass="home">
+    <Layout bodyClass="home">
       <SEO
         title={'Dimitar Tsvetkov'}
         keywords={[
           `photography`
         ]}
       />
+      <Section>
+        <Portfolio />
+      </Section>
     </Layout>
   );
 };

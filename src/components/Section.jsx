@@ -10,12 +10,11 @@ const Section = ({
   ...props
 }) => (
   <section
-    id={`${className}`}
-    className={`section section--${className}`}
+    className={`section`}
     data-theme={theme}
     {...props}
   >
-    <div className={`section__inner ${className}`}>
+    <div className={`section__inner`}>
       {children}
     </div>
   </section>

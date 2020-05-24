@@ -2,8 +2,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  @media (min-width: $smedium + 1) {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  @media (max-width: $smedium) {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
   > * {
     display: flex;
     flex-grow: 1;
@@ -26,7 +32,3 @@
   }
 }
 
-.nav-menu {
-  display: flex;
-  gap: 1rem
-}
