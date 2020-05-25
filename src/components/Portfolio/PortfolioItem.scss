@@ -1,0 +1,119 @@
+
+.folio {
+  padding: 0;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  .gatsby-image-wrapper {
+    transition: all 0.5s ease-in-out;
+    transform: scale(1);
+    filter: grayscale(1);
+  }
+  img {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  &__link {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+    overflow: hidden;
+    &:before {
+      transition: all 0.5s ease-in-out;
+      content: '';
+      position: absolute;
+      background-color: transparent;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+  }
+  @media (any-hover: hover) {
+    &:hover {
+      .gatsby-image-wrapper {
+        transform: scale(1.05);
+        filter: none;
+      }
+      &:before {
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      .folio__item__cell {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  }
+  @media (any-hover: none) {
+    &:before {
+      background: linear-gradient(
+        rgba(0, 0, 0, 0.1) 50%,
+        rgba(0, 0, 0, 0.9) 100%
+      );
+    }
+    .folio__item__cell {
+      left: 0;
+    }
+  }
+}
+
+.folio__item {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  color: #fff;
+  @media (any-hover: hover) {
+    align-items: center;
+  }
+  @media (any-hover: none) {
+    align-items: flex-end;
+    padding-bottom: 1rem;
+  }
+}
+
+.folio__item__cell {
+  text-align: center;
+  position: relative;
+  @media (min-width: $smedium + 1) {
+    transition: all 0.5s ease-in-out;
+    transform: scale(.6);
+    opacity: 0;
+  }
+  @media (max-width: $smedium) {
+    margin-top: 5px;
+  }
+}
+
+.folio__item__title {
+  margin-bottom: 0;
+  padding: 0 2rem;
+  font-size: var(--folio-title-size, 2rem);
+  @media (max-width: $medium) {
+    --folio-title-size: 1.5rem;
+    opacity: .9;
+  }
+}
+
+.folio__item__types {
+  margin: 0;
+  padding: 0 1rem;
+  color: rgba(var(--color-white), 0.6);
+  font-size: 0.8rem;
+  @media (min-width: $medium + 1) {
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+  }
+}

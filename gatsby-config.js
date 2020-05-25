@@ -8,14 +8,14 @@ module.exports = {
     siteUrl: 'https://dtphotography.ca/', // Site domain. Do not include a trailing slash! If you wish to use a path prefix you can read more about that here: https://www.gatsbyjs.org/docs/path-prefix/
     author: 'Dimitar Tsvetkov', // Author for RSS author segment and SEO schema
     authorJob: `Photographer`,
-    copyright: `Copyright © ${new Date().getFullYear()} DTPhotography`, // Copyright string for the RSS feed
+    copyright: 'Dimitar Tsvetkov Photography',
     userTwitter: '@dtphotography', // Change for Twitter Cards
     shortTitle: 'DTP', // Used for App manifest e.g. Mobile Home Screen
     shareImage: '${__dirname}/images/share.jpg', // Open Graph Default Share Image. 1200x1200 is recommended
     shareImageWidth: 900, // Change to the width of your default share image
     shareImageHeight: 600, // Change to the height of your default share image
     siteLogo: '${__dirname}/images/favicons/android-chrome-512x512.png', // Logo used for SEO, RSS, and App manifest
-    backgroundColor: '#e9e9e9', // Used for Offline Manifest
+    backgroundColor: '#000000', // Used for Offline Manifest
     themeColor: '#000000' // Used for Offline Manifest
   },
   plugins: [
@@ -28,7 +28,6 @@ module.exports = {
         includePaths: ['src/styles']
       }
     },
-    `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -68,7 +67,7 @@ module.exports = {
         name: `Dimitar Tsvetkov Photography`,
         short_name: `DTP`,
         start_url: `/`,
-        background_color: `#ffffff`,
+        background_color: `#000000`,
         theme_color: `#000000`,
         description: `Photographer`,
         display: `minimal-ui`,

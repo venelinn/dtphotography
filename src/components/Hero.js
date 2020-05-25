@@ -14,7 +14,9 @@ const Hero = props => {
       </div>
       <div className="hero__content">
         <h1 className="title title--h2">{props.data.title}</h1>
-        <h2 className="title title--h4">{props.data.description}</h2>
+        {props.data.description && (
+          <h2 className="title title--h4">{props.data.description}</h2>
+        )}
 
       </div>
     </div>

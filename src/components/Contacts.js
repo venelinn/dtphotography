@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-//import Fade from 'react-reveal/Fade';
 
 import './Contacts.scss';
 
@@ -84,10 +83,10 @@ const Contacts = props => {
         overlay={setModal}
         onClick={() => setModal(false)}
       >
-        <input type='hidden' name='form-name' value='contact' />
+        <input aria-label='form-name' type='hidden' name='form-name' value='contact' />
         <p hidden>
           <label>
-            Don’t fill this out: <input name='bot' onChange={handleChange} />
+            Don’t fill this out: <input name='bot' aria-label='bot' onChange={handleChange} />
           </label>
         </p>
 
@@ -97,6 +96,7 @@ const Contacts = props => {
               <input
                 value={name}
                 onChange={handleChange}
+                aria-label='Name'
                 required
                 name='name'
                 type='text'
@@ -111,6 +111,7 @@ const Contacts = props => {
               <input
                 name='email'
                 type='email'
+                aria-label='Email'
                 value={email}
                 onChange={handleChange}
                 required
@@ -125,6 +126,7 @@ const Contacts = props => {
                 name='message'
                 placeholder='Message'
                 value={message}
+                aria-label='Message'
                 onChange={handleChange}
                 required
                 rows='5'
@@ -132,10 +134,8 @@ const Contacts = props => {
               ></textarea>
             </label>
           </p>
-          <p className='form-field'>
-            <button className='submitform' type='submit'>
-              Send
-            </button>
+          <p className="form-field">
+            <button className='submitform' type='submit'>Send</button>
           </p>
         <Modal visible={modal} status={status}>
           <p>

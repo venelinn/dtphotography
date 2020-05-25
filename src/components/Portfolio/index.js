@@ -1,8 +1,7 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby'
-import Link from 'gatsby-link'
-import Img from 'gatsby-image';
-import Fade from 'react-reveal/Fade';
+import { useTrail, config } from "react-spring"
+import PortfolioItem from "./PortfolioItem"
 
 import './portfolio.scss';
 
@@ -29,30 +28,17 @@ const query = graphql`
 
 const Portfolio = () => {
   const folioData = useStaticQuery(query)
-  const gallery = folioData.data.edges.map(item => item.node);
-
+  const data = folioData.data.edges.map(item => item.node);
+  const trail = useTrail(data.length, {
+    config: config.slow,
+    from: { opacity: 0, transform: 'translate3d(0, 15px, 0)' },
+    to: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
+  })
   return (
     <div className='portfolio'>
-      <Fade cascade>
       <div className='portfolio__grid'>
-        {gallery.map((item, index) => (
-          <div className='folio' key={index}>
-            <Link
-              className='folio__link'
-              to={`/${item.slug}`}
-            >
-              <Img sizes={{...item.cover.sizes, aspectRatio: 16/9}}  />
-              <span className='folio__item'>
-                <span className='folio__item__cell'>
-                  <h3 className='folio__item__title'>{item.title}</h3>
-                  <span className='folio__item__types'>{item.types}</span>
-                </span>
-              </span>
-            </Link>
-          </div>
-        ))}
+        {trail.map((style, index) =>  <PortfolioItem style={style} key={index} data={data[index]} />)}
       </div>
-      </Fade>
   </div>
   );
 };

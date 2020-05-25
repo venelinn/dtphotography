@@ -28,7 +28,11 @@ const Nav = () => {
         {nav.map((item, index) => {
           return (
             <li key={index}>
-              <Link className="link" to={`/${item.slug}`} activeClassName="link--active">{item.menu}</Link>
+              {item.slug === 'index' ? (
+                <Link current="link--active" className="link" to="/">{item.menu}</Link>
+              ) : (
+                <Link className="link" to={`/${item.slug}/`} activeClassName="link--active">{item.menu}</Link>
+              )}
             </li>
           )
         })}
