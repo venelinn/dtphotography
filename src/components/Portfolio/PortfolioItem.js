@@ -22,8 +22,6 @@ const PortfolioItem = ({data, style}) => {
         className='folio__link'
         to={`/${data.slug}`}
       ></Link>
-
-
     </animated.div>
   )
 }
