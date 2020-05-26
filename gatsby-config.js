@@ -15,12 +15,13 @@ module.exports = {
     shareImageWidth: 900, // Change to the width of your default share image
     shareImageHeight: 600, // Change to the height of your default share image
     siteLogo: '${__dirname}/images/favicons/android-chrome-512x512.png', // Logo used for SEO, RSS, and App manifest
-    backgroundColor: '#000000', // Used for Offline Manifest
-    themeColor: '#000000' // Used for Offline Manifest
+    postsPerFirstPage: 7,
+    postsPerPage: 6
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
+
     {
       resolve: `gatsby-plugin-sass`,
       options: {
@@ -36,6 +37,30 @@ module.exports = {
       }
     },
     //'gatsby-plugin-netlify',
+    `gatsby-plugin-catch-links`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-prismjs`,
+          },
+          `gatsby-remark-emojis`,
+          `gatsby-remark-autolink-headers`,
+          {
+            resolve: `gatsby-remark-images-contentful`,
+            options: {
+              maxWidth: 650,
+              backgroundColor: 'white',
+              linkImagesToOriginal: false,
+            },
+          },
+        ],
+      },
+    },
     {
       resolve: 'gatsby-source-contentful',
       options: {
@@ -43,7 +68,7 @@ module.exports = {
         accessToken: `${process.env.CONTENTFUL_ACCESS_TOKEN}`
       }
     },
-    `@contentful/gatsby-transformer-contentful-richtext`,
+    //`@contentful/gatsby-transformer-contentful-richtext`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
