@@ -17,7 +17,7 @@ const query = graphql`
               ...GatsbyContentfulFluid_withWebp
             }
             sizes(maxWidth: 1000) {
-              ...GatsbyContentfulSizes
+              ...GatsbyContentfulSizes_withWebp
             }
           }
         }

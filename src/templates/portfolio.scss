@@ -34,12 +34,14 @@
     flex-wrap: wrap;
     margin: - calc(var(--space) / 2);
 
-    &__item {
+    &__item,
+    &__link {
         flex-basis: 50%;
         max-width: 50%;
         flex-grow: 0;
         flex-shrink: 0;
         padding: var(--space);
+        outline: none;
         &--portrait {
           flex-basis: 100%;
           max-width: 100%;
