@@ -62,3 +62,7 @@
 .ril__navButtonPrev {
   background-color: transparent;
 }
+
+.ril__image {
+	transition: transform .5s cubic-bezier(0.42, 0.63, 0.13, 0.99);
+}
