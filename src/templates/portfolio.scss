@@ -54,17 +54,11 @@
     display: grid;
     grid-gap: var(--space);
   }
-  //@include flexbin(300px, 1px);
-  // // Desktop devices
-  // @include flexbin($flexbin-row-height, $flexbin-space);
+}
 
-  // // Tablet devices
-  // @media (max-width: $flexbin-tablet-max) {
-  //   @include flexbin($flexbin-row-height-tablet, $flexbin-space-tablet);
-  // }
-
-  // // Phone devices
-  // @media (max-width: $flexbin-phone-max) {
-  //   @include flexbin($flexbin-row-height-phone, $flexbin-space-phone);
-  // }
+.ril__caption,
+.ril__toolbar,
+.ril__navButtonNext,
+.ril__navButtonPrev {
+  background-color: transparent;
 }
