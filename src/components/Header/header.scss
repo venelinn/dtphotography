@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 2;
+  z-index: 3;
   position: relative;
   @media (min-width: $smedium + 1) {
     min-height: var(--header-height);

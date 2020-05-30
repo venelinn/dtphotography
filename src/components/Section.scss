@@ -10,7 +10,8 @@
   }
   &--fixed {
     .section__inner {
-      width: var(--page-max-width);
+      max-width: var(--page-max-width);
+      width: 100%;
       margin-left: auto;
       margin-right: auto;
     }

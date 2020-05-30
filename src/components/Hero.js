@@ -1,6 +1,6 @@
 import React from 'react'
 import Img from "gatsby-image"
-
+import Section from "./Section"
 import './Hero.scss';
 
 const Hero = ({title, image}) => {
@@ -10,13 +10,11 @@ const Hero = ({title, image}) => {
         fluid={{...image.fluid, aspectRatio: 16/9}}
         alt={title}
       />
-      <div className="hero__content">
-        <h1 className="title title--h2">{title}</h1>
-        {image.description && (
-          <h2 className="title title--h4">{image.description}</h2>
-        )}
-
-      </div>
+        <div className="hero__content">
+          <Section className="fixed">
+            <h1 className="title title--h2">{title}</h1>
+          </Section>
+        </div>
     </div>
 
   )

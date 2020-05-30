@@ -1,0 +1,28 @@
+.post {
+  @media (min-width: $medium + 1) {
+    &:first-child {
+      grid-column: auto / span 2;
+    }
+  }
+  &__img {
+    position: relative;
+    margin-bottom: 1rem;
+    img {
+      display: block;
+    }
+    a {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+  &__date {
+    font-size: 80%;
+    opacity: .7;
+  }
+  &__meta {
+    display: flex;
+  }
+}

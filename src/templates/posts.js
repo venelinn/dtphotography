@@ -1,47 +1,38 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Link } from 'gatsby';
-import Img from "gatsby-image"
+
 import Layout from '../components/Layout'
 import Section from '../components/Section'
+import Card from '../components/Post/PostCard';
 import Pager from '../components/Pager';
 import SEO from '../components/Seo'
+import styled from 'styled-components'
+import { breakpoints } from '../styles/global'
+
+const List = styled.div`
+  display: grid;
+  grid-gap: 1rem 2rem;
+  @media (min-width: ${() => breakpoints.smedium}) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+`
 
 const BlogArchive = ({ data, pageContext }) => {
   const posts = data.allContentfulPost.edges;
-    // const { humanPageNumber, basePath } = pageContext
-  // const isFirstPage = humanPageNumber === 1
-  // let featuredPost
-  // try {
-  //   featuredPost = posts[0].node
-  // } catch (error) {
-  //   featuredPost = null
-  // }
-
+  const basePath = '/blog/'
 
   return (
     <Layout bodyClass="blog">
       <SEO title="Blog" />
       <Section className="fixed">
-        {posts.map(({ node }) => {
-          //const cyr = /[а-яА-ЯЁё]/.test(node.title)
-          return (
-            <article key={node.slug} className="posts">
-              <Link to={`/blog/${node.slug}`}>
-                <Img sizes={{...node.thumb.sizes, aspectRatio: 16/9}}/>
-              </Link>
-              <header>
-                <h2 className="title title--h2">
-                  <Link to={`/blog/${node.slug}`}>{node.title} </Link>
-                </h2>
-                <div className="blog__date">{node.date}</div>
-              </header>
-              <section>
-                <p dangerouslySetInnerHTML={{ __html: node.body.childMarkdownRemark.excerpt }} />
-              </section>
-            </article>
-          )
-        })}
+        <List>
+          {posts.map(({ node: post }) => {
+            //const cyr = /[а-яА-ЯЁё]/.test(node.title)
+            return (
+              <Card key={post.id} {...post} basePath={basePath} />
+            )
+          })}
+        </List>
       <Pager pageContext={pageContext} />
       </Section>
 
@@ -60,17 +51,19 @@ export const pageQuery = graphql`
         ) {
       edges {
         node {
+          id
           title
           slug
-          date: publishDate
-          thumb: heroImage {
+          publishDate(formatString: "MMMM DD, YYYY")
+          heroImage {
             sizes(maxWidth: 600) {
               ...GatsbyContentfulSizes_withWebp
             }
           }
           body {
             childMarkdownRemark {
-              excerpt(pruneLength: 320)
+              timeToRead
+              excerpt(pruneLength: 200)
             }
           }
         }

@@ -39,3 +39,12 @@ export default createGlobalStyle`
         url(${BebasKai}) format("woff");
   }
 `;
+
+export const breakpoints = {
+  small: '480px',
+  smedium: '600px',
+  medium: '800px',
+  large: '1024px',
+  xlarge: '1280px',
+  huge: '1600px',
+}
