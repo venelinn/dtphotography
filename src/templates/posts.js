@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import Img from "gatsby-image"
 import Layout from '../components/Layout'
 import Section from '../components/Section'
-import Pager from '../components/pager';
+import Pager from '../components/Pager';
 
 export const pageQuery = graphql`
   query($limit: Int!) {
