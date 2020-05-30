@@ -21,7 +21,6 @@ const SEO = ({ title, description, image }) => {
   const defaultImage = site.siteMetadata.siteUrl + site.siteMetadata.shareImage
   const metaDescription = description || site.siteMetadata.description
   const metaImage = image || defaultImage
-    console.log(metaImage)
   return (
     <Helmet
       htmlAttributes={{
