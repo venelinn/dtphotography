@@ -29,7 +29,6 @@ const PostTemplate = ({ data, pageContext }) => {
   }
 
   return (
-
     <Layout bodyClass="post">
       <SEO
         title={title}

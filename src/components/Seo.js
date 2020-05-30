@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-const SEO = ({ title, description, shareImage }) => {
+const SEO = ({ title, description, image }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -20,8 +20,8 @@ const SEO = ({ title, description, shareImage }) => {
 
   const defaultImage = site.siteMetadata.siteUrl + site.siteMetadata.shareImage
   const metaDescription = description || site.siteMetadata.description
-  const metaImage = shareImage || defaultImage
-
+  const metaImage = image || defaultImage
+    console.log(metaImage)
   return (
     <Helmet
       htmlAttributes={{
@@ -34,7 +34,7 @@ const SEO = ({ title, description, shareImage }) => {
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       {/* General tags */}
-      <meta name="image" content={shareImage} />
+      <meta name="image" content={image} />
       <meta name="description" content={metaDescription} />
 
       {/* OpenGraph tags */}

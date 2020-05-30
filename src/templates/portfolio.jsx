@@ -151,16 +151,18 @@ class PortfolioTemplate extends Component {
   render() {
     const {
       title,
+      ogimg,
       images,
       desc
     } = this.props.data.contentfulPortfolio;
     return (
       <Layout bodyClass="portfolio">
         <SEO
-          title={'Dimitar Tsvetkov'}
+          title={title}
           keywords={[
             `photography`
           ]}
+          image={ogimg.sizes.src}
         />
          <Section className="work">
           <div className="work__header">
@@ -215,6 +217,11 @@ export const pageQuery = graphql`
       title
       desc: childContentfulPortfolioDescriptionTextNode {
         description
+      }
+      ogimg: cover {
+        sizes(maxWidth: 900) {
+          ...GatsbyContentfulSizes_withWebp
+        }
       }
       images {
         fluid(maxWidth: 2000, quality: 80) {
