@@ -16,7 +16,7 @@ const Header = () => {
   };
 
   return (
-    <Section>
+    <Section  className="header">
       <header className={`header menu--${menuVisible ? 'on' : 'off'}`}>
         <div className="header__left">
           <div className={`menu--${menuVisible ? 'on' : 'off'}`}>

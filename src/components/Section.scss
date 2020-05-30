@@ -8,5 +8,12 @@
   &--full {
     --inner-padding: 0;
   }
+  &--fixed {
+    .section__inner {
+      width: var(--page-max-width);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
 }
 

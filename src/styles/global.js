@@ -17,6 +17,9 @@ export default createGlobalStyle`
     --primary-ease: var(--custom-ease-1);
     --body-font: 'Jost', serif;
     --header-font: 'BebasKai', serif;
+    --page-max-width: 1200px;
+    --header-height: 140px;
+    --header-height-m: 80px;
   }
   @font-face {
     font-family: "Jost";

@@ -19,9 +19,7 @@ const AboutPage = props => {
         ]}
       />
 
-      <Section className="full">
-        <Hero data={about.hero} />
-      </Section>
+      <Hero title={about.hero.title} image={about.hero} />
 
       <Section>
         <div className="about">

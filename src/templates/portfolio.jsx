@@ -187,7 +187,7 @@ class PortfolioTemplate extends Component {
                 onKeyDown={() => this.openLightBox(index)}
               >
               <Img
-                sizes={{...item.sizes, aspectRatio: 16/9}}
+                sizes={{...item.sizes}}
               />
               </div>
             ))}

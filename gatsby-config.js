@@ -15,6 +15,7 @@ module.exports = {
     shareImageWidth: 900, // Change to the width of your default share image
     shareImageHeight: 600, // Change to the height of your default share image
     siteLogo: '${__dirname}/images/favicons/android-chrome-512x512.png', // Logo used for SEO, RSS, and App manifest
+    blogPath: '/blog/',
     postsPerFirstPage: 7,
     postsPerPage: 6
   },
@@ -56,6 +57,12 @@ module.exports = {
               maxWidth: 650,
               backgroundColor: 'white',
               linkImagesToOriginal: false,
+            },
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
         ],

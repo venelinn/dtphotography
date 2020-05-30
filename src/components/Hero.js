@@ -3,19 +3,17 @@ import Img from "gatsby-image"
 
 import './Hero.scss';
 
-const Hero = props => {
+const Hero = ({title, image}) => {
   return (
     <div className="hero">
-      <div className="hero__media">
-        <Img
-          fluid={{...props.data.fluid, aspectRatio: 16/9}}
-          alt={props.data.title}
-        />
-      </div>
+      <Img
+        fluid={{...image.fluid, aspectRatio: 16/9}}
+        alt={title}
+      />
       <div className="hero__content">
-        <h1 className="title title--h2">{props.data.title}</h1>
-        {props.data.description && (
-          <h2 className="title title--h4">{props.data.description}</h2>
+        <h1 className="title title--h2">{title}</h1>
+        {image.description && (
+          <h2 className="title title--h4">{image.description}</h2>
         )}
 
       </div>

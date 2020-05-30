@@ -2,13 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 2;
+  position: relative;
   @media (min-width: $smedium + 1) {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    min-height: var(--header-height);
   }
   @media (max-width: $smedium) {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    min-height: var(--header-height-m);
   }
   > * {
     display: flex;
@@ -20,7 +20,6 @@
   }
   &__right {
     justify-content: flex-end;
-
   }
 }
 
@@ -35,4 +34,3 @@
     fill: var(--text-color);
   }
 }
-
