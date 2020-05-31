@@ -27,33 +27,38 @@
 }
 
 .gallery {
-  --space: 8px;
+  --space: 5px;
+  margin: - calc(var(--space) / 2);
+  &__item {
+    position: relative;
+  }
   @media (min-width: $smedium + 1) {
     display: flex;
-    overflow: hidden;
     flex-wrap: wrap;
-    margin: - calc(var(--space) / 2);
-
-    &__item,
-    &__link {
-        flex-basis: 50%;
-        max-width: 50%;
-        flex-grow: 0;
-        flex-shrink: 0;
-        padding: var(--space);
-        outline: none;
-        &--portrait {
-          flex-basis: 100%;
-          max-width: 100%;
-        }
-
-      padding: 5px;
+    &__item {
+      padding: var(--space);
+      outline: none;
     }
   }
   @media (max-width: $smedium) {
     display: grid;
     grid-gap: var(--space);
   }
+  &__link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    z-index: 2;
+    cursor: pointer;
+  }
+}
+
+.fullscreen .react-images__view-image {
+  height: auto;
+  max-height: 100vh;
+  max-width: 100%;
+  user-select: none;
 }
 
 .ril__caption,

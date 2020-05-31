@@ -21,7 +21,7 @@ const AboutPage = props => {
 
       <Hero title={about.hero.title} image={about.hero} />
 
-      <Section>
+      <Section className="fixed">
         <div className="about">
           <div>
             <h2>{about.title}</h2>
