@@ -7,11 +7,12 @@ import './portfolio.scss';
 
 const query = graphql`
   query Folio {
-    data: allContentfulPortfolio(sort:  {fields: [title], order: DESC}) {
+    data: allContentfulPortfolio(sort:  {fields: [date], order: ASC}) {
       edges {
         node {
           title
           slug
+          date
           cover {
             fluid(maxWidth: 1000, quality: 80) {
               ...GatsbyContentfulFluid_withWebp
