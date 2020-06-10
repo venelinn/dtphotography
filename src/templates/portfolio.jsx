@@ -26,7 +26,7 @@ const PortfolioTemplate = ({ data}) => {
     }));
 
   return (
-    <Layout bodyClass="portfolio">
+    <>
       <SEO
         title={'Dimitar Tsvetkov'}
         keywords={[
@@ -52,7 +52,7 @@ const PortfolioTemplate = ({ data}) => {
           itemsPerRow={[1, 2]}
         />
       </Section>
-    </Layout>
+    </>
   );
 };
 

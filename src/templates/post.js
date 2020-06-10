@@ -29,7 +29,7 @@ const PostTemplate = ({ data, pageContext }) => {
   }
 
   return (
-    <Layout bodyClass="post">
+    <>
       <SEO
         title={title}
         description={metaDescription}
@@ -45,7 +45,7 @@ const PostTemplate = ({ data, pageContext }) => {
         <PageBody body={body} />
         <PostLinks previous={previous} next={next} basePath={basePath} />
       </Section>
-    </Layout>
+    </>
   )
 }
 
