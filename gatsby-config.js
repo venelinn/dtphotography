@@ -96,7 +96,7 @@ module.exports = {
       resolve: 'gatsby-plugin-feed-generator',
       options: {
         generator: `GatsbyJS`,
-        rss: false, // Set to true to enable rss generation
+        rss: true, // Set to true to enable rss generation
         json: true, // Set to true to enable json feed generation
         siteQuery: `
       {
