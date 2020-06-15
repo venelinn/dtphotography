@@ -99,6 +99,7 @@
   margin-bottom: 0;
   padding: 0 2rem;
   font-size: var(--folio-title-size, 2rem);
+  text-shadow: 1px 1px 1px rgba(0,0,0,.1);
   @media (max-width: $medium) {
     --folio-title-size: 1.5rem;
     opacity: .9;

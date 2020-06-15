@@ -11,7 +11,7 @@ import Hero from '../components/Hero';
 const AboutPage = props => {
   const about = props.data.about.edges[0].node;
   return (
-    <Layout bodyClass="about">
+    <>
       <SEO
         title={'Dimitar Tsvetkov'}
         keywords={[
@@ -25,13 +25,14 @@ const AboutPage = props => {
         <div className="about">
           <div>
             <h2>{about.title}</h2>
+            {about.desc.description && (
             <p>{about.desc.description}</p>
-
+            )}
           </div>
           <Contacts />
         </div>
       </Section>
-    </Layout>
+    </>
   );
 };
 

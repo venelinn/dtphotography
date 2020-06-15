@@ -8,13 +8,13 @@
       }
     }
   }
-  @media (min-width: $smedium + 1) {
+  @media (min-width: $medium + 1) {
     display: flex;
     li + li {
       margin-left: 1rem;
     }
   }
-  @media (max-width: $smedium) {
+  @media (max-width: $medium) {
     display: grid;
     grid-gap: 1rem;
 
@@ -22,7 +22,7 @@
 }
 
 .nav {
-  @media (max-width: $smedium) {
+  @media (max-width: $medium) {
     position: absolute;
     z-index: 1;
     width: 100%;
@@ -94,14 +94,14 @@
     .top-nav__icon {
       position: relative;
       z-index: 2;
-      @media (min-width: $smedium + 1) {
+      @media (min-width: $medium + 1) {
         display: none;
       }
     }
   }
   &--off {
     .top-nav__icon {
-      @media (min-width: $smedium + 1) {
+      @media (min-width: $medium + 1) {
         display: none;
       }
     }

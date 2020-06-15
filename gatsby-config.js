@@ -11,7 +11,7 @@ module.exports = {
     copyright: 'Dimitar Tsvetkov Photography',
     userTwitter: '@dtphotography', // Change for Twitter Cards
     shortTitle: 'DTP', // Used for App manifest e.g. Mobile Home Screen
-    shareImage: `/images/share.jpg`, // Open Graph Default Share Image. 1200x1200 is recommended
+    shareImage: `share.jpg`, // Open Graph Default Share Image. 1200x1200 is recommended
     shareImageWidth: 900, // Change to the width of your default share image
     shareImageHeight: 600, // Change to the height of your default share image
     siteLogo: `/images/favicons/android-chrome-512x512.png`, // Logo used for SEO, RSS, and App manifest
@@ -37,7 +37,6 @@ module.exports = {
         path: path.join(__dirname, `src`, `images`)
       }
     },
-    //'gatsby-plugin-netlify',
     `gatsby-plugin-catch-links`,
     {
       resolve: `gatsby-plugin-mdx`,
@@ -107,6 +106,13 @@ module.exports = {
         icon: `${__dirname}/src/images/dtp-icon.png` // This path is relative to the root of the site.
       }
     },
+    // {
+    //   resolve: `gatsby-plugin-schema-snapshot`,
+    //   options: {
+    //     path: `./src/gatsby/schema/schema.gql`,
+    //     update: process.env.GATSBY_UPDATE_SCHEMA_SNAPSHOT,
+    //   },
+    // },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     'gatsby-plugin-offline'
