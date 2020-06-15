@@ -17,8 +17,13 @@ const query = graphql`
             fluid(maxWidth: 1000, quality: 80) {
               ...GatsbyContentfulFluid_withWebp
             }
-            sizes(maxWidth: 1000) {
+            sizes(maxWidth: 700) {
               ...GatsbyContentfulSizes_withWebp
+            }
+            fixed(width: 700, height: 430, quality: 80) {
+              width
+              height
+              ...GatsbyContentfulFixed_withWebp
             }
           }
         }

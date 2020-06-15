@@ -12,6 +12,7 @@ module.exports = async ({ graphql, actions }) => {
     portfolio: path.resolve(templatesDirectory, 'portfolio.jsx'),
     post: path.resolve(templatesDirectory, 'post.js'),
     posts: path.resolve(templatesDirectory, 'posts.js'),
+    //page: path.resolve(templatesDirectory, 'page.js'),
   }
 
   // Pages
@@ -19,7 +20,7 @@ module.exports = async ({ graphql, actions }) => {
   // const pages = pagesQuery.data.allContentfulPage.edges
   // pages.forEach(page => {
   //   createPage({
-  //     path: `/${page.node.slug}`,
+  //     path: `/`,
   //     component: templates.page,
   //     context: {
   //       id: page.node.id,

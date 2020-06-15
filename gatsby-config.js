@@ -11,7 +11,7 @@ module.exports = {
     copyright: 'Dimitar Tsvetkov Photography',
     userTwitter: '@dtphotography', // Change for Twitter Cards
     shortTitle: 'DTP', // Used for App manifest e.g. Mobile Home Screen
-    shareImage: `/images/share.jpg`, // Open Graph Default Share Image. 1200x1200 is recommended
+    shareImage: `share.jpg`, // Open Graph Default Share Image. 1200x1200 is recommended
     shareImageWidth: 900, // Change to the width of your default share image
     shareImageHeight: 600, // Change to the height of your default share image
     siteLogo: `/images/favicons/android-chrome-512x512.png`, // Logo used for SEO, RSS, and App manifest
