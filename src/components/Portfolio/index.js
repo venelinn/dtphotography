@@ -7,7 +7,7 @@ import './portfolio.scss';
 
 const query = graphql`
   query Folio {
-    data: allContentfulPortfolio(sort:  {fields: [date], order: ASC}) {
+    data: allContentfulPortfolio(sort:  {fields: [date], order: DESC}) {
       edges {
         node {
           title
