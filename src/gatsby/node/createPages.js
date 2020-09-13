@@ -6,7 +6,7 @@ const { paginate } = require('gatsby-awesome-pagination');
 module.exports = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const blogPath = config.siteMetadata.blogPath || '/blog/';
+  const blogPath = config.siteMetadata.blogPath || '/blog';
   const templatesDirectory = path.resolve(__dirname, '../../templates');
   const templates = {
     portfolio: path.resolve(templatesDirectory, 'portfolio.jsx'),

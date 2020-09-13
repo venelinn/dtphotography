@@ -23,7 +23,7 @@ const Header = () => {
             <div className="top-nav__icon">
               <button
                 className="burger"
-                onClick={() => openOverlay()}
+                onClick={openOverlay}
                 aria-label="Menu"
                 aria-controls="navigation"
                 >
