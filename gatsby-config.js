@@ -39,9 +39,6 @@ module.exports = {
     },
     `gatsby-plugin-catch-links`,
     {
-      resolve: `gatsby-plugin-mdx`,
-    },
-    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
