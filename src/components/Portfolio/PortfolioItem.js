@@ -15,7 +15,7 @@ const PortfolioItem = ({data, style}) => {
       <span className='folio__item'>
         <span className='folio__item__cell'>
           <h3 className='folio__item__title'>{data.title}</h3>
-          <span className='folio__item__types'>{data.types}</span>
+          {/* <span className='folio__item__types'>{data.types}</span> */}
         </span>
       </span>
       <Link
