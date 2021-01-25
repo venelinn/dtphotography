@@ -2,11 +2,11 @@ import React, { useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
+import { DataProvider } from '../utils/DataProvider'
 import Header from './Header';
 import Footer from './Footer';
 import GlobalStyle from '../styles/global';
 import Transition from './Transition'
-import OptionsContext from './OptionsContext'
 
 import '../styles/style.scss';
 
@@ -49,16 +49,18 @@ const Layout = props => {
     <>
       <GlobalStyle />
       <ThemeClassOnBody bodyClass={props.bodyClass} />
-      <Skip href="#main" id="skip-navigation">
-        Skip to content
-      </Skip>
-      <Header />
-      <Transition {...props}>
-        <main id="main">
-          { props.children }
-        </main>
-        <Footer />
-      </Transition>
+      <DataProvider>
+        <Skip href="#main" id="skip-navigation">
+          Skip to content
+        </Skip>
+        <Header location={props.location} />
+        <Transition {...props}>
+          <main id="main">
+            { props.children }
+          </main>
+          <Footer />
+        </Transition>
+      </DataProvider>
     </>
   )
 };
