@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
 import Section from '../components/Section'
 import Hero from '../components/Hero'
 import PageBody from '../components/Post/PageBody'
@@ -20,6 +19,7 @@ const PostTemplate = ({ data, pageContext }) => {
 
   const previous = pageContext.prev
   const next = pageContext.next
+
   const { basePath } = pageContext
   let ogImage
   try {

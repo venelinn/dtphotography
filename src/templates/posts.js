@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { useTrail, config } from "react-spring"
-import Layout from '../components/Layout'
+//import { useTrail, config } from "react-spring"
 import Section from '../components/Section'
 import Card from '../components/Post/PostCard';
 import Pager from '../components/Pager';
@@ -20,11 +19,11 @@ const List = styled.div`
 const BlogArchive = ({ data, pageContext }) => {
   const posts = data.allContentfulPost.edges;
   const basePath = '/blog/'
-  const trail = useTrail(data.length, {
-    config: config.slow,
-    from: { opacity: 0, transform: 'translate3d(0, 15px, 0)' },
-    to: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
-  })
+  // const trail = useTrail(data.length, {
+  //   config: config.slow,
+  //   from: { opacity: 0, transform: 'translate3d(0, 15px, 0)' },
+  //   to: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
+  // })
 
   return (
     <>
@@ -38,7 +37,7 @@ const BlogArchive = ({ data, pageContext }) => {
             )
           })}
         </List>
-      <Pager pageContext={pageContext} />
+        <Pager pageContext={pageContext} />
       </Section>
 
     </>
