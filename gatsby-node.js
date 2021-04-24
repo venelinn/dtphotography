@@ -10,15 +10,3 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     }
   });
 };
-
-// const path = require('path')
-
-// exports.onCreateWebpackConfig = ({ actions }) => {
-//   actions.setWebpackConfig({
-//     resolve: {
-//       alias: {
-//         Shared: path.resolve(__dirname, 'src/components'),
-//       },
-//     },
-//   })
-// }

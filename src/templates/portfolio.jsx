@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
 import SEO from '../components/Seo';
 import Section from '../components/Section';
 import Gallery from '../components/ImageGrid'

@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import Layout from '../components/Layout';
 import SEO from '../components/Seo';
 import Section from '../components/Section';
 import Contacts from '../components/Contacts';
@@ -55,31 +54,3 @@ export const pageQuery = graphql`
     }
   }
 `
-
-// export const query = graphql`
-//   query About {
-//     aboutData: contentfulIntro {
-//       title
-//       description
-//       slug
-//       sectionTitle
-//       modules {
-//         ... on ContentfulHero {
-//           title
-//           image {
-//             fluid(maxWidth: 1400, quality: 90) {
-//               ...GatsbyContentfulFluid_withWebp_noBase64
-//             }
-//           }
-//           media {
-//             title
-//             description
-//             fluid(maxWidth: 1400, quality: 90) {
-//               ...GatsbyContentfulFluid_withWebp_noBase64
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
