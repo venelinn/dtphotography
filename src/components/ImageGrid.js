@@ -6,8 +6,10 @@ import { chunk, sum } from 'lodash';
 
 const Gallery = ({
   images,
+  full,
   itemsPerRow: itemsPerRowByBreakpoints = [2],
 }) => {
+  console.log(full)
   const aspectRatios = images.map(image => image.aspectRatio);
   const rowAspectRatioSumsByBreakpoints = itemsPerRowByBreakpoints.map(
     itemsPerRow =>
@@ -41,7 +43,7 @@ const Gallery = ({
           )}
         >
           <Img
-             sizes={{...image}}
+             fluid={{...image}}
           />
           <a
             href={image.fluid}
@@ -63,8 +65,8 @@ const Gallery = ({
           {modalIsOpen && (
             <Modal onClose={closeModal}>
               <Carousel
-                views={images.map(({ src, caption }) => ({
-                  source: src,
+                views={full.map(({ images, caption }) => ({
+                  source: images.fallback.src,
                   caption,
                 }))}
                 currentIndex={modalCurrentIndex}

@@ -22,7 +22,13 @@ const PortfolioTemplate = ({ data}) => {
     id: item.id,
     ...item.fluid,
     caption: title
-    }));
+  }));
+
+  const full = images.map(item => ({
+    id: item.id,
+    ...item.gatsbyImageData,
+    caption: title
+  }));
 
   return (
     <>
@@ -31,7 +37,7 @@ const PortfolioTemplate = ({ data}) => {
         keywords={[
           `photography`
         ]}
-        image={ogimg.sizes.src}
+        image={ogimg.fixed.src}
       />
       <Section className="work">
         <div className="work__header">
@@ -48,6 +54,7 @@ const PortfolioTemplate = ({ data}) => {
         </div>
         <Gallery
           images={fluid}
+          full={full}
           itemsPerRow={[1, 2]}
         />
       </Section>
@@ -72,18 +79,16 @@ export const pageQuery = graphql`
         description
       }
       ogimg: cover {
-        sizes(maxWidth: 900) {
-          ...GatsbyContentfulSizes_withWebp
+        fixed(width: 900) {
+          ...GatsbyContentfulFixed_withWebp
         }
       }
       images {
         id
-        fluid(maxWidth: 2000, quality: 80) {
+        gatsbyImageData(width: 2000, formats: [AUTO, WEBP])
+        fluid(maxWidth: 500, quality: 80) {
           aspectRatio
           ...GatsbyContentfulFluid_withWebp
-        }
-        sizes(maxWidth: 600) {
-          ...GatsbyContentfulSizes_withWebp
         }
       }
     }

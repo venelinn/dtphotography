@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useRef } from 'react';
 import Link from 'gatsby-link'
 import { useData } from '../../utils/DataProvider'
+import { graphql, useStaticQuery } from 'gatsby'
 import Section from '../Section';
 import Nav from './Nav';
 import Logo from './Logo'
@@ -9,12 +10,18 @@ import Social from './Social';
 import './header.scss';
 
 const Header = ({location}) => {
-  const [state, setState] = useData()
-  const [menuVisible, setMenuVisible] = useState(false);
-
-  // const openOverlay = () => {
-  //   setMenuVisible(!menuVisible)
-  // };
+  const [state, setState] = useData();
+  const { site } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `
+  )
 
 
   const locRef = useRef({
@@ -96,7 +103,7 @@ const Header = ({location}) => {
           </div>
         </div>
         <div className="header__center logo">
-          <Link to="/"><Logo /></Link>
+          <Link to="/"><Logo /><span className="sr-only">{site.siteMetadata.title}</span></Link>
         </div>
         <div className="header__right">
           <Social />

@@ -24,7 +24,7 @@ export const AboutPageFragment = graphql`
           hero {
             title
             description
-            fluid(maxWidth: 1600, quality: 90) {
+            fluid(maxWidth: 1000, quality: 90) {
               aspectRatio
                ...GatsbyContentfulFluid_withWebp_noBase64
              }

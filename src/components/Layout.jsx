@@ -1,9 +1,9 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import { DataProvider } from '../utils/DataProvider'
-import Header from './Header';
+import Header from './Header/Header';
 import Footer from './Footer';
 import GlobalStyle from '../styles/global';
 import Transition from './Transition'

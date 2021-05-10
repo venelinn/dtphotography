@@ -4,13 +4,13 @@ import Img from 'gatsby-image'
 import PostDetails from './PostDetails'
 import './PostCard.scss';
 
-const Card = ({ slug, heroImage, title, publishDate, body, ...props }) => {
+const Card = ({ slug, heroImage, title, publishDate, excerpt }) => {
   return (
     <>
-      {heroImage && body && (
+      {heroImage && (
         <article key={slug} className="post">
           <div className="post__img">
-            <Img sizes={{...heroImage.sizes, aspectRatio: 16/9}}/>
+            <Img fluid={{ ...heroImage.fluid, aspectRatio: 16/9}}/>
             <Link to={`/blog/${slug}`}></Link>
           </div>
           <div className="post__content">
@@ -19,11 +19,10 @@ const Card = ({ slug, heroImage, title, publishDate, body, ...props }) => {
             </h2>
             <PostDetails
               date={publishDate}
-              timeToRead={body.childMarkdownRemark.timeToRead}
             />
           </div>
           <section>
-            <p dangerouslySetInnerHTML={{ __html: body.childMarkdownRemark.excerpt }} />
+            <p>{excerpt}</p>
           </section>
         </article>
       )}

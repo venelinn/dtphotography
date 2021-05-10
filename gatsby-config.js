@@ -20,14 +20,18 @@ module.exports = {
     postsPerPage: 6
   },
   plugins: [
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
-
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        data: '@import "src/styles/global.scss";',
-        includePaths: ['src/styles']
+        sassOptions: {
+          includePaths: [path.resolve(__dirname, 'src/styles')],
+        },
+        additionalData: `@import "${__dirname}/src/styles/global.scss";`,
       }
     },
     {
@@ -71,7 +75,6 @@ module.exports = {
         accessToken: `${process.env.CONTENTFUL_ACCESS_TOKEN}`
       }
     },
-    //`@contentful/gatsby-transformer-contentful-richtext`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -79,8 +82,6 @@ module.exports = {
         path: `${__dirname}/src`
       }
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     `gatsby-plugin-preload-fonts`,
     {
       resolve: `gatsby-plugin-google-analytics`,

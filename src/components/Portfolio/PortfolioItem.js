@@ -1,5 +1,6 @@
 import React from 'react'
 import Img from 'gatsby-image'
+// import { GatsbyImage } from "gatsby-plugin-image"
 import { animated } from "react-spring"
 import Link from 'gatsby-link'
 
@@ -11,17 +12,16 @@ const PortfolioItem = ({data, style}) => {
       style={style}
       className="folio"
     >
-      <Img sizes={{...data.cover.sizes, aspectRatio: 16/9}}  />
+      <Img fluid={data.cover.fluid}  />
       <span className='folio__item'>
         <span className='folio__item__cell'>
           <h3 className='folio__item__title'>{data.title}</h3>
-          {/* <span className='folio__item__types'>{data.types}</span> */}
         </span>
       </span>
       <Link
         className='folio__link'
         to={`/${data.slug}`}
-      ></Link>
+      ><span className="sr-only">{data.title}</span></Link>
     </animated.div>
   )
 }

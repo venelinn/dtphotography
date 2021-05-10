@@ -7,7 +7,7 @@ const Hero = ({title, image}) => {
   return (
     <div className="hero">
       <Img
-        fluid={{...image.fluid, aspectRatio: 16/9}}
+        fluid={{ ...image.fluid, aspectRatio: 16/9}}
         alt={title}
       />
         <div className="hero__content">

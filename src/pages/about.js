@@ -13,9 +13,7 @@ const AboutPage = props => {
     <>
       <SEO
         title={'Dimitar Tsvetkov'}
-        keywords={[
-          `photography`
-        ]}
+        keywords={[ 'photography' ]}
       />
 
       <Hero title={about.hero.title} image={about.hero} />
@@ -25,7 +23,7 @@ const AboutPage = props => {
           <div>
             <h2>{about.title}</h2>
             {about.desc.description && (
-            <p>{about.desc.description}</p>
+              <p>{about.desc.description}</p>
             )}
           </div>
           <Contacts />
@@ -53,4 +51,4 @@ export const pageQuery = graphql`
       ...AboutPageFragment
     }
   }
-`
+`;

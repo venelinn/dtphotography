@@ -1,7 +1,7 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby'
-import { useTrail, config } from "react-spring"
-import PortfolioItem from "./PortfolioItem"
+import { graphql, useStaticQuery } from 'gatsby';
+import { useTrail, config } from 'react-spring';
+import PortfolioItem from './PortfolioItem';
 
 import './portfolio.scss';
 
@@ -14,16 +14,8 @@ const query = graphql`
           slug
           date
           cover {
-            fluid(maxWidth: 1000, quality: 80) {
+            fluid(maxWidth: 500, quality: 80) {
               ...GatsbyContentfulFluid_withWebp
-            }
-            sizes(maxWidth: 700) {
-              ...GatsbyContentfulSizes_withWebp
-            }
-            fixed(width: 700, height: 430, quality: 80) {
-              width
-              height
-              ...GatsbyContentfulFixed_withWebp
             }
           }
         }
@@ -45,7 +37,7 @@ const Portfolio = () => {
       <div className='portfolio__grid'>
         {trail.map((style, index) =>  <PortfolioItem style={style} key={index} data={data[index]} />)}
       </div>
-  </div>
+    </div>
   );
 };
 

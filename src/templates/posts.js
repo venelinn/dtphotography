@@ -1,16 +1,16 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+import React from 'react';
+import { graphql } from 'gatsby';
 //import { useTrail, config } from "react-spring"
-import Section from '../components/Section'
+import Section from '../components/Section';
 import Card from '../components/Post/PostCard';
 import Pager from '../components/Pager';
-import SEO from '../components/Seo'
-import styled from 'styled-components'
-import { breakpoints } from '../styles/global'
+import SEO from '../components/Seo';
+import styled from 'styled-components';
+import { breakpoints } from '../styles/global';
 
 const List = styled.div`
   display: grid;
-  grid-gap: 1rem 2rem;
+  gap: 1rem 2rem;
   @media (min-width: ${() => breakpoints.smedium}) {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -18,7 +18,7 @@ const List = styled.div`
 
 const BlogArchive = ({ data, pageContext }) => {
   const posts = data.allContentfulPost.edges;
-  const basePath = '/blog/'
+  const basePath = '/blog/';
   // const trail = useTrail(data.length, {
   //   config: config.slow,
   //   from: { opacity: 0, transform: 'translate3d(0, 15px, 0)' },
@@ -34,14 +34,13 @@ const BlogArchive = ({ data, pageContext }) => {
             //const cyr = /[а-яА-ЯЁё]/.test(node.title)
             return (
               <Card key={post.id} {...post} basePath={basePath} />
-            )
+            );
           })}
         </List>
         <Pager pageContext={pageContext} />
       </Section>
-
     </>
-  )
+  );
 };
 
 export default BlogArchive;
@@ -60,16 +59,11 @@ export const pageQuery = graphql`
           slug
           publishDate(formatString: "MMMM DD, YYYY")
           heroImage {
-            sizes(maxWidth: 600) {
-              ...GatsbyContentfulSizes_withWebp
+            fluid(maxWidth: 500, quality: 80) {
+              ...GatsbyContentfulFluid_withWebp
             }
           }
-          body {
-            childMarkdownRemark {
-              timeToRead
-              excerpt(pruneLength: 200)
-            }
-          }
+          excerpt
         }
        }
     }
