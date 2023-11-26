@@ -62,10 +62,8 @@
     "url": "https://github.com/venelinn/dtphotography/issues"
   },
   "browsersList": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
+    ">1%",
+    "last 2 versions"
   ],
   "devDependencies": {
     "babel-eslint": "^10.1.0",
@@ -76,5 +74,8 @@
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-react": "^7.27.2",
     "react-images": "^1.2.0-beta.7"
+  },
+  "engines": {
+    "node": "18.16.0"
   }
 }
