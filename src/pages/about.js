@@ -6,13 +6,12 @@ import Section from '../components/Section';
 import Contacts from '../components/Contacts';
 import Hero from '../components/Hero';
 
-
 const AboutPage = props => {
   const about = props.data.about.edges[0].node;
   return (
     <>
       <SEO
-        title={'Dimitar Tsvetkov'}
+        title='Dimitar Tsvetkov'
         keywords={[ 'photography' ]}
       />
 

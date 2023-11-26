@@ -24,10 +24,7 @@ export const AboutPageFragment = graphql`
           hero {
             title
             description
-            fluid(maxWidth: 1000, quality: 90) {
-              aspectRatio
-               ...GatsbyContentfulFluid_withWebp_noBase64
-             }
+            gatsbyImageData(layout: FULL_WIDTH, width: 1400)
            }
         }
       }

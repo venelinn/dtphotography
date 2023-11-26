@@ -10,7 +10,7 @@ const IndexPage = () => {
       <SEO
         title={'Dimitar Tsvetkov'}
         keywords={[
-          `photography`
+          'photography'
         ]}
       />
       <Section>

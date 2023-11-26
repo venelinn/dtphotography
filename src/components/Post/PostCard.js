@@ -1,16 +1,17 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import PostDetails from './PostDetails'
 import './PostCard.scss';
 
 const Card = ({ slug, heroImage, title, publishDate, excerpt }) => {
+  const image = getImage(heroImage);
   return (
     <>
       {heroImage && (
         <article key={slug} className="post">
           <div className="post__img">
-            <Img fluid={{ ...heroImage.fluid, aspectRatio: 16/9}}/>
+            <GatsbyImage image={image} alt={title} />
             <Link to={`/blog/${slug}`}></Link>
           </div>
           <div className="post__content">

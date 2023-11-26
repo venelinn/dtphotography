@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby';
 import Section from './Section';
 import './Footer.scss';
 
@@ -9,19 +9,19 @@ const query = graphql`
       copy
     }
   }
-`
+`;
 
 const Footer = ({ theme }) => {
-  const footer = useStaticQuery(query)
+  const footer = useStaticQuery(query);
   return (
     <Section>
-    <footer className="footer" data-theme={theme}>
-      <div className="footer__copyright">
-        © {new Date().getFullYear()}, {footer.data.copy}
-      </div>
-    </footer>
+      <footer className="footer" data-theme={theme}>
+        <div className="footer__copyright">
+          © {new Date().getFullYear()}, {footer.data.copy}
+        </div>
+      </footer>
     </Section>
   );
-}
+};
 
 export default Footer;

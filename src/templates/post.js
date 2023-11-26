@@ -11,16 +11,10 @@ import RichText from '../utils/RichText';
 const PostTemplate = ({ data, pageContext }) => {
   const {title, metaDescription, heroImage, publishDate, content } = data.contentfulPost;
 
-  const previous = pageContext.prev;
-  const next = pageContext.next;
+  const { prev, next, basePath } = pageContext;
 
-  const { basePath } = pageContext;
-  let ogImage;
-  try {
-    ogImage = heroImage.ogimg.src;
-  } catch (error) {
-    ogImage = null;
-  }
+
+  const ogImage = heroImage?.gatsbyImageData?.images?.fallback?.src || null;
 
   return (
     <>
@@ -31,11 +25,9 @@ const PostTemplate = ({ data, pageContext }) => {
       />
       <Hero title={title} image={heroImage}  />
       <Section className="fixed">
-        <PostDetails
-          date={publishDate}
-        />
+        <PostDetails date={publishDate} />
         <RichText data={content} className="post"  />
-        <PostLinks previous={previous} next={next} basePath={basePath} />
+        <PostLinks prev={prev} next={next} basePath={basePath} />
       </Section>
     </>
   );
@@ -56,12 +48,7 @@ export const postQuery = graphql`
       publishDate(formatString: "MMMM DD, YYYY")
       heroImage {
         title
-        fluid(maxWidth: 1000) {
-          ...GatsbyContentfulFluid_withWebp_noBase64
-        }
-        ogimg: resize(width: 800) {
-          src
-        }
+        gatsbyImageData(layout: FULL_WIDTH, width: 1000)
       }
       content {
         raw
@@ -70,9 +57,7 @@ export const postQuery = graphql`
             # contentful_id is required to resolve the references
             __typename
             contentful_id
-            fluid(maxWidth: 600) {
-              ...GatsbyContentfulFluid_withWebp
-            }
+            gatsbyImageData(layout: FULL_WIDTH, width: 600)
           }
         }
       }

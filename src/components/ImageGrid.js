@@ -1,23 +1,9 @@
 import React, { useState } from 'react';
-import Img from 'gatsby-image';
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Carousel, { Modal, ModalGateway } from 'react-images';
-import { Box } from 'rebass';
 import { chunk, sum } from 'lodash';
 
-const Gallery = ({
-  images,
-  full,
-  itemsPerRow: itemsPerRowByBreakpoints = [2],
-}) => {
-  console.log(full)
-  const aspectRatios = images.map(image => image.aspectRatio);
-  const rowAspectRatioSumsByBreakpoints = itemsPerRowByBreakpoints.map(
-    itemsPerRow =>
-      chunk(aspectRatios, itemsPerRow).map(rowAspectRatios =>
-        sum(rowAspectRatios),
-      ),
-  );
-
+const Gallery = ({ thumbs, full, itemsPerRow: itemsPerRowByBreakpoints = [2]}) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [modalCurrentIndex, setModalCurrentIndex] = useState(0);
 
@@ -27,38 +13,44 @@ const Gallery = ({
     setModalIsOpen(true);
   };
 
+  console.log("full:", full);
+  console.log("thumbs:", thumbs);
+  const aspectRatios = thumbs.map((image) => image.width / image.height);
+  const rowAspectRatioSumsByBreakpoints = itemsPerRowByBreakpoints.map(
+    (itemsPerRow) =>
+      chunk(aspectRatios, itemsPerRow).map((rowAspectRatios) => sum(rowAspectRatios))
+  );
+
   return (
-    <Box className="gallery">
-      {images.map((image, i) => (
-        <Box
+    <div className="gallery">
+      {thumbs.map((thumb, i) => {
+        const thumbnail = getImage(thumb);
+
+        return (
+        <div
           className="gallery__item"
           key={i}
-          width={rowAspectRatioSumsByBreakpoints.map(
-            (rowAspectRatioSums, j) => {
+          // style={{ '--bgr-hero': `var(--color-${color})` }}
+          style={{
+            '--thumb-width': rowAspectRatioSumsByBreakpoints.map((rowAspectRatioSums, j) => {
               const rowIndex = Math.floor(i / itemsPerRowByBreakpoints[j]);
               const rowAspectRatioSum = rowAspectRatioSums[rowIndex];
 
-              return `${(image.aspectRatio / rowAspectRatioSum) * 100}%`;
-            },
-          )}
-        >
-          <Img
-             fluid={{...image}}
-          />
+              return `calc(${(aspectRatios[i] / rowAspectRatioSum) * 100}% - 5px)`;
+            })[0],
+          }}
+
+          >
+          <GatsbyImage image={thumbnail} alt={thumb?.caption} />
           <a
-            href={image.fluid}
-            title={image.caption}
-            onClick={(e) => {
-              e.preventDefault();
-              openModal(i);
-            }}
+            href={thumb.images.fallback.src}
+            title={thumb?.caption}
+            onClick={(e) => { e.preventDefault(); openModal(i); }}
             className="gallery__link"
             >
           </a>
-
-
-        </Box>
-      ))}
+        </div>
+      )})}
 
       {ModalGateway && (
         <ModalGateway>
@@ -75,7 +67,7 @@ const Gallery = ({
           )}
         </ModalGateway>
       )}
-    </Box>
+    </div>
   );
 };
 

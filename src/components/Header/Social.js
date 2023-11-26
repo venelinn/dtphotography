@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby';
 import SVG from '../SVG';
 
 import './Social.scss';
@@ -16,10 +16,10 @@ const query = graphql`
       }
     }
   }
-`
+`;
 
 const Social = () => {
-  const socialData = useStaticQuery(query)
+  const socialData = useStaticQuery(query);
   const menu = socialData.data.edges.map(item => item.node);
   return (
     <div className='social intro__social'>

@@ -59,9 +59,7 @@ export const pageQuery = graphql`
           slug
           publishDate(formatString: "MMMM DD, YYYY")
           heroImage {
-            fluid(maxWidth: 500, quality: 80) {
-              ...GatsbyContentfulFluid_withWebp
-            }
+            gatsbyImageData(layout: FULL_WIDTH, width: 500)
           }
           excerpt
         }
