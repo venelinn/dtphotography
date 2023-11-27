@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 
+// TODO: remove styled components
+
 const Wrapper = styled.div`
   margin: 2rem 0 0 0;
   padding: 0 0
@@ -35,8 +37,8 @@ const PostLinks = props => {
   return (
     <Wrapper>
       <Box>
-        {props.previous && (
-          <PreviousLink to={`${props.basePath}${props.previous.slug}/`}>
+        {props.prev && (
+          <PreviousLink to={`${props.basePath}${props.prev.slug}/`}>
             &#8592; Prev
           </PreviousLink>
         )}

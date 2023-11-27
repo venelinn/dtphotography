@@ -26,9 +26,21 @@
   }
 }
 
+// .gallery {
+//   display: grid;
+//   gap: .5rem;
+//   &__item {
+//     position: relative;
+//   }
+//   @media (min-width: $smedium + 1) {
+//     grid-template-columns: repeat(2, 1fr);
+//   }
+// }
+
 .gallery {
   --space: 5px;
-  margin: - calc(var(--space) / 2);
+  // margin: - calc(var(--space) / 2);
+  gap: var(--space);
   &__item {
     position: relative;
   }
@@ -36,8 +48,8 @@
     display: flex;
     flex-wrap: wrap;
     &__item {
-      padding: var(--space);
       outline: none;
+      width: var(--thumb-width);
     }
   }
   @media (max-width: $smedium) {

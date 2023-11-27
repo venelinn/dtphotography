@@ -103,6 +103,15 @@ h4  {
   }
 }
 
+.iframe-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  iframe {
+    aspect-ratio: inherit;
+    border-style: none;
+  }
+}
+
 /// HERO
 
 .not-found {

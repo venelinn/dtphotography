@@ -8,4 +8,4 @@ const PageBody = props => {
   )
 }
 
-export default PageBody
+export default PageBody;

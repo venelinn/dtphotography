@@ -1,32 +1,20 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import Section from '../components/Section'
-import Hero from '../components/Hero'
-import PageBody from '../components/Post/PageBody'
-// import TagList from '../components/TagList'
-import PostLinks from '../components/Post/PostLinks'
-import PostDetails from '../components/Post/PostDetails'
-import SEO from '../components/Seo'
+import React from 'react';
+import { graphql } from 'gatsby';
+import { object } from 'prop-types';
+import Section from '../components/Section/Section';
+import Hero from '../components/Hero/Hero';
+import PostLinks from '../components/Post/PostLinks';
+import PostDetails from '../components/Post/PostDetails';
+import SEO from '../components/Seo';
+import RichText from '../utils/RichText';
 
 const PostTemplate = ({ data, pageContext }) => {
-  const {
-    title,
-    metaDescription,
-    hero,
-    body,
-    publishDate,
-  } = data.contentfulPost
+  const {title, metaDescription, heroImage, publishDate, content } = data.contentfulPost;
 
-  const previous = pageContext.prev
-  const next = pageContext.next
+  const { prev, next, basePath } = pageContext;
 
-  const { basePath } = pageContext
-  let ogImage
-  try {
-    ogImage = hero.ogimg.src
-  } catch (error) {
-    ogImage = null
-  }
+
+  const ogImage = heroImage?.gatsbyImageData?.images?.fallback?.src || null;
 
   return (
     <>
@@ -35,19 +23,21 @@ const PostTemplate = ({ data, pageContext }) => {
         description={metaDescription}
         image={ogImage}
       />
-      <Hero title={title} image={hero}  />
+      <Hero title={title} image={heroImage}  />
       <Section className="fixed">
-        {/* {tags && <TagList tags={tags} basePath={basePath} />}*/}
-        <PostDetails
-          date={publishDate}
-          timeToRead={body.childMarkdownRemark.timeToRead}
-        />
-        <PageBody body={body} />
-        <PostLinks previous={previous} next={next} basePath={basePath} />
+        <PostDetails date={publishDate} />
+        <RichText data={content} className="post"  />
+        <PostLinks prev={prev} next={next} basePath={basePath} />
       </Section>
     </>
-  )
-}
+  );
+};
+
+PostTemplate.propTypes = {
+  data: object.isRequired,
+  pageContext: object,
+};
+
 
 export const postQuery = graphql`
   query($id: String!) {
@@ -56,24 +46,23 @@ export const postQuery = graphql`
       slug
       metaDescription
       publishDate(formatString: "MMMM DD, YYYY")
-      hero: heroImage {
+      heroImage {
         title
-        fluid(maxWidth: 1800) {
-          ...GatsbyContentfulFluid_withWebp_noBase64
-        }
-        ogimg: resize(width: 800) {
-          src
-        }
+        gatsbyImageData(layout: FULL_WIDTH, width: 1000)
       }
-      body {
-        childMarkdownRemark {
-          timeToRead
-          html
-          excerpt(pruneLength: 320)
+      content {
+        raw
+        references {
+          ... on ContentfulAsset {
+            # contentful_id is required to resolve the references
+            __typename
+            contentful_id
+            gatsbyImageData(layout: FULL_WIDTH, width: 600)
+          }
         }
       }
     }
   }
-`
+`;
 
-export default PostTemplate
+export default PostTemplate;

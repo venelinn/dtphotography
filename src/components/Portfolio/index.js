@@ -1,51 +1,43 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby'
-import { useTrail, config } from "react-spring"
-import PortfolioItem from "./PortfolioItem"
+import { graphql, useStaticQuery } from 'gatsby';
+import { useTrail, config } from 'react-spring';
+import PortfolioItem from './PortfolioItem';
 
 import './portfolio.scss';
 
 const query = graphql`
   query Folio {
-    data: allContentfulPortfolio(sort:  {fields: [date], order: DESC}) {
+    data: allContentfulPortfolio(sort: { fields: [date], order: DESC }) {
       edges {
         node {
           title
           slug
           date
           cover {
-            fluid(maxWidth: 1000, quality: 80) {
-              ...GatsbyContentfulFluid_withWebp
-            }
-            sizes(maxWidth: 700) {
-              ...GatsbyContentfulSizes_withWebp
-            }
-            fixed(width: 700, height: 430, quality: 80) {
-              width
-              height
-              ...GatsbyContentfulFixed_withWebp
-            }
+            gatsbyImageData(layout: FULL_WIDTH, width: 500)
           }
         }
       }
     }
   }
-`
+`;
 
 const Portfolio = () => {
-  const folioData = useStaticQuery(query)
+  const folioData = useStaticQuery(query);
   const data = folioData.data.edges.map(item => item.node);
   const trail = useTrail(data.length, {
     config: config.slow,
     from: { opacity: 0, transform: 'translate3d(0, 15px, 0)' },
     to: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
-  })
+  });
   return (
     <div className='portfolio'>
       <div className='portfolio__grid'>
-        {trail.map((style, index) =>  <PortfolioItem style={style} key={index} data={data[index]} />)}
+        {trail.map((style, index) => (
+          <PortfolioItem style={style} key={index} data={data[index]} />
+        ))}
       </div>
-  </div>
+    </div>
   );
 };
 

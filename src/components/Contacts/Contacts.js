@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-
 import './Contacts.scss';
 
 const Form = styled.form`
@@ -41,7 +40,7 @@ const Contacts = props => {
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode(data)
+      body: encode(data),
     })
       .then(handleSuccess(true))
       .catch(error => handleSuccess(false));
@@ -83,60 +82,68 @@ const Contacts = props => {
         overlay={setModal}
         onClick={() => setModal(false)}
       >
-        <input aria-label='form-name' type='hidden' name='form-name' value='contact' />
+        <input
+          aria-label='form-name'
+          type='hidden'
+          name='form-name'
+          value='contact'
+        />
         <p hidden>
           <label>
-            Don’t fill this out: <input name='bot' aria-label='bot' onChange={handleChange} />
+            Don’t fill this out:{' '}
+            <input name='bot' aria-label='bot' onChange={handleChange} />
           </label>
         </p>
 
-          <p className='form-field'>
-            <label>
-              <span>Name</span>
-              <input
-                value={name}
-                onChange={handleChange}
-                aria-label='Name'
-                required
-                name='name'
-                type='text'
-                placeholder='Name'
-                minLength='2'
-              />
-            </label>
-          </p>
-          <p className='form-field'>
-            <label>
-              <span>Email</span>
-              <input
-                name='email'
-                type='email'
-                aria-label='Email'
-                value={email}
-                onChange={handleChange}
-                required
-                placeholder='Email'
-              />
-            </label>
-          </p>
-          <p className='form-field'>
-            <label>
-              <span>Message</span>
-              <textarea
-                name='message'
-                placeholder='Message'
-                value={message}
-                aria-label='Message'
-                onChange={handleChange}
-                required
-                rows='5'
-                cols='5'
-              ></textarea>
-            </label>
-          </p>
-          <p className="form-field">
-            <button className='submitform' type='submit'>Send</button>
-          </p>
+        <p className='form-field'>
+          <label>
+            <span>Name</span>
+            <input
+              value={name}
+              onChange={handleChange}
+              aria-label='Name'
+              required
+              name='name'
+              type='text'
+              placeholder='Name'
+              minLength='2'
+            />
+          </label>
+        </p>
+        <p className='form-field'>
+          <label>
+            <span>Email</span>
+            <input
+              name='email'
+              type='email'
+              aria-label='Email'
+              value={email}
+              onChange={handleChange}
+              required
+              placeholder='Email'
+            />
+          </label>
+        </p>
+        <p className='form-field'>
+          <label>
+            <span>Message</span>
+            <textarea
+              name='message'
+              placeholder='Message'
+              value={message}
+              aria-label='Message'
+              onChange={handleChange}
+              required
+              rows='5'
+              cols='5'
+            ></textarea>
+          </label>
+        </p>
+        <p className='form-field'>
+          <button className='submitform' type='submit'>
+            Send
+          </button>
+        </p>
         <Modal visible={modal} status={status}>
           <p>
             {status

@@ -1,6 +1,5 @@
 import React from 'react';
-import Link from 'gatsby-link';
-import { graphql } from 'gatsby';
+import {Link, graphql } from 'gatsby';
 import SEO from '../components/Seo';
 
 const NotFoundPage = props => {

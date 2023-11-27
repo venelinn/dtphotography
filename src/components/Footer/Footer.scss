@@ -7,11 +7,11 @@
   @media (max-width: $smedium) {
     padding: 1rem 0;
   }
+  &__copyright {
+    padding: 10px;
+    text-align: center;
+    font-size: 70%;
+    color: rgba(var(--color-white), 0.8);
+  }
 }
 
-.copyright {
-  padding: 10px;
-  text-align: center;
-  font-size: 70%;
-  color: rgba(var(--color-white), 0.8);
-}

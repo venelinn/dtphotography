@@ -22,7 +22,7 @@ $flexbin-space-phone: $flexbin-space !default;
   display: flex;
   overflow: hidden;
   flex-wrap: wrap;
-  margin: - calc(var(--space) / 2);
+  // margin: -calc(var(--space) / 2);
 
   // Let final row align left fit if images are not enough to fill
   // If the gap is very small, fill the final row
