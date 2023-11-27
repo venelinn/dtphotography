@@ -11,7 +11,7 @@
     "dotenv": "^10.0.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "framer-motion": "^4.1.9",
-    "gatsby": "^4.25.6",
+    "gatsby": "^5.12.11",
     "gatsby-awesome-pagination": "^0.3.8",
     "gatsby-plugin-catch-links": "^4.25.0",
     "gatsby-plugin-feed-generator": "^2.0.5",
