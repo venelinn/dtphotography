@@ -13,8 +13,6 @@ const Gallery = ({ thumbs, full, itemsPerRow: itemsPerRowByBreakpoints = [2]}) =
     setModalIsOpen(true);
   };
 
-  console.log("full:", full);
-  console.log("thumbs:", thumbs);
   const aspectRatios = thumbs.map((image) => image.width / image.height);
   const rowAspectRatioSumsByBreakpoints = itemsPerRowByBreakpoints.map(
     (itemsPerRow) =>
@@ -30,7 +28,6 @@ const Gallery = ({ thumbs, full, itemsPerRow: itemsPerRowByBreakpoints = [2]}) =
         <div
           className="gallery__item"
           key={i}
-          // style={{ '--bgr-hero': `var(--color-${color})` }}
           style={{
             '--thumb-width': rowAspectRatioSumsByBreakpoints.map((rowAspectRatioSums, j) => {
               const rowIndex = Math.floor(i / itemsPerRowByBreakpoints[j]);

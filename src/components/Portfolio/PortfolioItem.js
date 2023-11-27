@@ -1,9 +1,7 @@
 import React from 'react'
-// import Img from 'gatsby-image'
+import { Link} from 'gatsby';
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { animated } from "react-spring"
-import Link from 'gatsby-link'
-
 import "./PortfolioItem.scss"
 
 const PortfolioItem = ({data, style}) => {
@@ -13,7 +11,6 @@ const PortfolioItem = ({data, style}) => {
       style={style}
       className="folio"
     >
-      {/* <Img fluid={data.cover.fluid}  /> */}
       <GatsbyImage image={image} alt={data.title} />
       <span className='folio__item'>
         <span className='folio__item__cell'>
