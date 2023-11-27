@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import { DataProvider } from '../utils/DataProvider'
 import Header from './Header/Header';
-import Footer from './Footer';
+import Footer from './Footer/Footer';
 import GlobalStyle from '../styles/global';
 import Transition from './Transition'
 

@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef } from 'react';
 import { useData } from '../../utils/DataProvider'
 import { Link, graphql, useStaticQuery } from 'gatsby'
-import Section from '../Section';
+import Section from '../Section/Section';
 import Nav from './Nav';
 import Logo from './Logo'
 import Social from './Social';

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import SEO from '../components/Seo';
-import Section from '../components/Section';
+import Section from '../components/Section/Section';
 import Gallery from '../components/ImageGrid'
 
 import './portfolio.scss';

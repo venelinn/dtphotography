@@ -1,8 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { object } from 'prop-types';
-import Section from '../components/Section';
-import Hero from '../components/Hero';
+import Section from '../components/Section/Section';
+import Hero from '../components/Hero/Hero';
 import PostLinks from '../components/Post/PostLinks';
 import PostDetails from '../components/Post/PostDetails';
 import SEO from '../components/Seo';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 //import { useTrail, config } from "react-spring"
-import Section from '../components/Section';
+import Section from '../components/Section/Section';
 import Card from '../components/Post/PostCard';
 import Pager from '../components/Pager';
 import SEO from '../components/Seo';

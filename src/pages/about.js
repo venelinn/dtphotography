@@ -2,9 +2,9 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import SEO from '../components/Seo';
-import Section from '../components/Section';
-import Contacts from '../components/Contacts';
-import Hero from '../components/Hero';
+import Section from '../components/Section/Section';
+import Contacts from '../components/Contacts/Contacts';
+import Hero from '../components/Hero/Hero';
 
 const AboutPage = props => {
   const about = props.data.about.edges[0].node;

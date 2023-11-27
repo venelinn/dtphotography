@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import Section from './Section';
+import Section from '../Section/Section';
 import './Footer.scss';
 
 const query = graphql`
