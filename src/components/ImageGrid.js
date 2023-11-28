@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import Carousel, { Modal, ModalGateway } from 'react-images';
+// import Carousel, { Modal, ModalGateway } from 'react-images';
 import { chunk, sum } from 'lodash';
 
 const Gallery = ({
@@ -61,7 +61,7 @@ const Gallery = ({
         );
       })}
 
-      {ModalGateway && (
+      {/* {ModalGateway && (
         <ModalGateway>
           {modalIsOpen && (
             <Modal onClose={closeModal}>
@@ -75,7 +75,7 @@ const Gallery = ({
             </Modal>
           )}
         </ModalGateway>
-      )}
+      )} */}
     </div>
   );
 };
