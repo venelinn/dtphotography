@@ -10,7 +10,7 @@
     "babel-plugin-styled-components": "^2.1.4",
     "dotenv": "^16.3.1",
     "eslint-import-resolver-alias": "^1.1.2",
-    "framer-motion": "^4.1.9",
+    "framer-motion": "^10.16.5",
     "gatsby": "^5.12.11",
     "gatsby-awesome-pagination": "^0.3.8",
     "gatsby-core-utils": "^4.12.1",

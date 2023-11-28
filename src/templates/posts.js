@@ -48,10 +48,7 @@ export default BlogArchive;
 
 export const pageQuery = graphql`
   query($limit: Int!) {
-    allContentfulPost(
-        sort: { fields: publishDate, order: DESC},
-        limit: $limit
-        ) {
+    allContentfulPost(sort: {publishDate: DESC}, limit: $limit) {
       edges {
         node {
           id
@@ -63,7 +60,7 @@ export const pageQuery = graphql`
           }
           excerpt
         }
-       }
+      }
     }
   }
 `;
