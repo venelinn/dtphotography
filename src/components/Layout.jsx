@@ -4,7 +4,6 @@ import Helmet from 'react-helmet'
 import { DataProvider } from '../utils/DataProvider'
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
-import Transition from './Transition'
 
 import '../styles/style.scss';
 
@@ -33,12 +32,10 @@ const Layout = props => {
           Skip to content
         </a>
         <Header location={props.location} />
-        <Transition {...props}>
-          <main id="main">
-            { props.children }
-          </main>
-          <Footer />
-        </Transition>
+        <main id="main">
+          { props.children }
+        </main>
+        <Footer />
       </DataProvider>
     </>
   )
