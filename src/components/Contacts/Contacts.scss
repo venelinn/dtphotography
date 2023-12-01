@@ -118,3 +118,18 @@ input::-ms-clear {
 .contact-info h5 {
   color: var(--base-color);
 }
+
+.contact-dialog {
+  // background-color: #f1f1f1;
+  padding: 2em;
+  border-radius: 2px;
+  transition: 0.2s color;
+  text-align: center;
+  margin-top: 2rem;
+  position: static;
+  color: var(--modal-status, red );
+  &[data-status="true"] {
+    --modal-status: green;
+  }
+}
+

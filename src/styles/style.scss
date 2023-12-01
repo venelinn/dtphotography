@@ -1,8 +1,25 @@
 //@import 'fonts';
+@import "./fonts/jost/jost";
+@import "./fonts/BebasKai/bebaskai";
 @import 'animation';
 @import 'theme';
 
 @import 'reset';
+
+:root {
+  --base-color: #48a7d1;
+  --color-dark: #313131;
+  --color-light: #444;
+  --color-white: 255,255,255;
+  --color-black: 0,0,0;
+  --text-in: cubic-bezier(.31,.11,.12,.99);
+  --primary-ease: var(--custom-ease-1);
+  --body-font: 'Jost', serif;
+  --header-font: 'BebasKai', serif;
+  --page-max-width: 1200px;
+  --header-height: 140px;
+  --header-height-m: 80px;
+}
 
 body {
   font-family: var(--body-font);

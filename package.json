@@ -6,7 +6,6 @@
   "author": "Venelin Nikolov <venelinn@gmail.com>",
   "dependencies": {
     "@contentful/rich-text-types": "^16.3.0",
-    "babel-plugin-styled-components": "^2.1.4",
     "dotenv": "^16.3.1",
     "eslint-import-resolver-alias": "^1.1.2",
     "framer-motion": "^10.16.5",
@@ -34,12 +33,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
-    "react-image-lightbox": "^5.1.1",
     "react-spring": "^9.1.2",
     "react-spring-lightbox": "^1.5.0",
-    "sass": "^1.43.4",
-    "styled-components": "^6.1.1",
-    "swiper": "^11.0.5"
+    "sass": "^1.43.4"
   },
   "keywords": [
     "gatsby"

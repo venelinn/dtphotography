@@ -4,7 +4,6 @@ import Helmet from 'react-helmet'
 import { DataProvider } from '../utils/DataProvider'
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
-import GlobalStyle from '../styles/global';
 import Transition from './Transition'
 
 import '../styles/style.scss';
@@ -28,7 +27,6 @@ const Layout = props => {
   useEffect(() => window.addEventListener('keydown', handleFirstTab), [])
   return (
     <>
-      <GlobalStyle />
       <ThemeClassOnBody bodyClass={props.bodyClass} />
       <DataProvider>
         <a href="#main" id="skip-navigation">
