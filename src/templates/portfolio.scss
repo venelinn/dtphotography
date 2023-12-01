@@ -40,21 +40,24 @@
 .gallery {
   --space: 5px;
   // margin: - calc(var(--space) / 2);
-  gap: var(--space);
   &__item {
     position: relative;
   }
-  @media (min-width: $smedium + 1) {
-    display: flex;
-    flex-wrap: wrap;
-    &__item {
-      outline: none;
-      width: var(--thumb-width);
+  > div {
+    gap: var(--space);
+    @media (min-width: $smedium + 1) {
+      display: flex;
+      flex-wrap: wrap;
+      .gallery__item {
+        outline: none;
+        width: var(--thumb-width);
+      }
     }
-  }
-  @media (max-width: $smedium) {
-    display: grid;
-    grid-gap: var(--space);
+    @media (max-width: $smedium) {
+      display: grid;
+      grid-gap: var(--space);
+    }
+
   }
   &__link {
     position: absolute;
@@ -82,4 +85,18 @@
 
 .ril__image {
 	transition: transform .5s cubic-bezier(0.42, 0.63, 0.13, 0.99);
+}
+
+
+.full-images {
+  background-color: rgba(0, 0, 0, 0.8);
+  inset: 0px;
+  position: fixed;
+  z-index: 1199;
+  &__img {
+    height: auto;
+    max-height: 100vh;
+    max-width: 100%;
+    user-select: none;
+  }
 }

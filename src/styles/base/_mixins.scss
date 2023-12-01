@@ -124,3 +124,59 @@
   ::-moz-placeholder          {@content}
   :-ms-input-placeholder      {@content}
 }
+
+@mixin closeButton {
+	--close-size: 36px;
+	position: var(--_close-position, absolute);
+	color: var(--_close-color, inherit);
+	right: 1rem;
+	top: .5rem;
+	z-index: 1;
+	width: var(--close-size);
+	height: var(--close-size);
+	border-radius: 50%;
+	border: 2px solid currentColor;
+	background-color: transparent;
+	// line-height: 0;
+	// opacity: 0;
+	// transform: scale(0.01);
+
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 65%;
+		height: 3px;
+		@media (prefers-reduced-motion: no-preference) {
+			background: currentColor;
+			transition: all 0.35s var(--ease-in);
+		}
+		@media (prefers-reduced-motion: reduce) {
+			background: currentColor;
+		}
+	}
+
+	&:before {
+		transform: translate3d(-50%, -50%, 0) rotate(-45deg);
+	}
+
+	&:after {
+		transform: translate3d(-50%, -50%, 0) rotate(45deg);
+	}
+	&:hover {
+		@media (prefers-reduced-motion: no-preference) {
+			&:before {
+				transform: translate3d(-50%, -50%, 0) rotate(45deg);
+			}
+
+			&:after {
+				transform: translate3d(-50%, -50%, 0) rotate(-45deg);
+			}
+		}
+		@media (prefers-reduced-motion: reduce) {
+			color: currentColor;
+		}
+	}
+}

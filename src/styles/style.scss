@@ -112,6 +112,24 @@ h4  {
   }
 }
 
+#skip-navigation {
+  padding: 0 1rem;
+  line-height: 60px;
+  background: #2867cf;
+  color: white;
+  z-index: 101;
+  position: fixed;
+  top: -100%;
+  &:hover {
+    text-decoration: underline;
+  }
+  &:focus,
+  &:active,
+  &:hover {
+    top: 0;
+  }
+}
+
 /// HERO
 
 .not-found {
