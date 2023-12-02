@@ -5,16 +5,7 @@ import Section from '../components/Section/Section';
 import Card from '../components/Post/PostCard';
 import Pager from '../components/Pager';
 import SEO from '../components/Seo';
-import styled from 'styled-components';
-import { breakpoints } from '../styles/global';
-
-const List = styled.div`
-  display: grid;
-  gap: 1rem 2rem;
-  @media (min-width: ${() => breakpoints.smedium}) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-`
+// import '../templates/Blog.scss';
 
 const BlogArchive = ({ data, pageContext }) => {
   const posts = data.allContentfulPost.edges;
@@ -29,14 +20,14 @@ const BlogArchive = ({ data, pageContext }) => {
     <>
       <SEO title="Blog" />
       <Section className="fixed">
-        <List>
+        <div className='posts' >
           {posts.map(({ node: post }) => {
             //const cyr = /[а-яА-ЯЁё]/.test(node.title)
             return (
               <Card key={post.id} {...post} basePath={basePath} />
             );
           })}
-        </List>
+        </div>
         <Pager pageContext={pageContext} />
       </Section>
     </>
@@ -48,10 +39,7 @@ export default BlogArchive;
 
 export const pageQuery = graphql`
   query($limit: Int!) {
-    allContentfulPost(
-        sort: { fields: publishDate, order: DESC},
-        limit: $limit
-        ) {
+    allContentfulPost(sort: {publishDate: DESC}, limit: $limit) {
       edges {
         node {
           id
@@ -63,7 +51,7 @@ export const pageQuery = graphql`
           }
           excerpt
         }
-       }
+      }
     }
   }
 `;

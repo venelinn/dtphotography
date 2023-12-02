@@ -1,32 +1,11 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet'
-import styled from 'styled-components'
 import { DataProvider } from '../utils/DataProvider'
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
-import GlobalStyle from '../styles/global';
-import Transition from './Transition'
 
 import '../styles/style.scss';
-
-const Skip = styled.a`
-  padding: 0 1rem;
-  line-height: 60px;
-  background: #2867cf;
-  color: white;
-  z-index: 101;
-  position: fixed;
-  top: -100%;
-  &:hover {
-    text-decoration: underline;
-  }
-  &:focus,
-  &:active,
-  &:hover {
-    top: 0;
-  }
-`
 
 const ThemeClassOnBody = ({bodyClass}) => {
   // const [theme] = useTheme();
@@ -47,19 +26,16 @@ const Layout = props => {
   useEffect(() => window.addEventListener('keydown', handleFirstTab), [])
   return (
     <>
-      <GlobalStyle />
       <ThemeClassOnBody bodyClass={props.bodyClass} />
       <DataProvider>
-        <Skip href="#main" id="skip-navigation">
+        <a href="#main" id="skip-navigation">
           Skip to content
-        </Skip>
+        </a>
         <Header location={props.location} />
-        <Transition {...props}>
-          <main id="main">
-            { props.children }
-          </main>
-          <Footer />
-        </Transition>
+        <main id="main">
+          { props.children }
+        </main>
+        <Footer />
       </DataProvider>
     </>
   )

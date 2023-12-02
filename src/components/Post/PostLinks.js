@@ -1,54 +1,23 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Link } from 'gatsby'
-
-// TODO: remove styled components
-
-const Wrapper = styled.div`
-  margin: 2rem 0 0 0;
-  padding: 0 0
-`
-
-const Box = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  width: 100%;
-  a {
-    color: white;
-    padding: 1em 0;
-    border-radius: 2px;
-    text-decoration: none;
-    transition: 0.2s;
-  }
-`
-
-const PreviousLink = styled(Link)`
-  margin-right: auto;
-  order: 1;
-`
-
-const NextLink = styled(Link)`
-  margin-left: auto;
-  order: 2;
-`
+import './Blog.scss';
 
 const PostLinks = props => {
   return (
-    <Wrapper>
-      <Box>
+    <div className="post-nav-wrapper">
+      <div className="post-nav">
         {props.prev && (
-          <PreviousLink to={`${props.basePath}${props.prev.slug}/`}>
+          <Link to={`${props.basePath}${props.prev.slug}/`} className="post-nav__link post-nav__link--prev ">
             &#8592; Prev
-          </PreviousLink>
+          </Link>
         )}
         {props.next && (
-          <NextLink to={`${props.basePath}${props.next.slug}/`}>
+          <Link to={`${props.basePath}${props.next.slug}/`} className="post-nav__link post-nav__link--next">
             Next &#8594;
-          </NextLink>
+          </Link>
         )}
-      </Box>
-    </Wrapper>
+      </div>
+    </div>
   )
 }
 

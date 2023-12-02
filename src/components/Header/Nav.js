@@ -6,7 +6,7 @@ import './Nav.scss';
 
 const query = graphql`
   query Navigation {
-    data: allContentfulPage(sort:  {fields: [menu], order: DESC}) {
+    data: allContentfulPage(sort: {menu: DESC}) {
       edges {
         node {
           menu

@@ -87,13 +87,13 @@ module.exports = {
             name: 'feedPost',
             query: `
             {
-              allContentfulPost(sort: { fields: [publishDate], order: DESC }, limit: 1) {
+              allContentfulPost(sort: {publishDate: DESC}, limit: 1) {
                 edges {
                   node {
-                  title
-                  id
-                  slug
-                  publishDate(formatString: "MMMM DD, YYYY")
+                    title
+                    id
+                    slug
+                    publishDate(formatString: "MMMM DD, YYYY")
                   }
                 }
               }
@@ -113,13 +113,13 @@ module.exports = {
             name: 'feedPhoto',
             query: `
             {
-              allContentfulPortfolio(sort: { fields: [createdAt], order: DESC }, limit: 1) {
+              allContentfulPortfolio(sort: {createdAt: DESC}, limit: 1) {
                 edges {
                   node {
-                  title
-                  id
-                  slug
-                  createdAt(formatString: "MMMM DD, YYYY")
+                    title
+                    id
+                    slug
+                    createdAt(formatString: "MMMM DD, YYYY")
                   }
                 }
               }
