@@ -34,7 +34,7 @@ const Portfolio = () => {
     <div className='portfolio'>
       <div className='portfolio__grid'>
         {trail.map((style, index) => (
-          <PortfolioItem style={style} key={index} data={data[index]} />
+          <PortfolioItem style={style} key={index} data={data[index]} slug={data[index].slug} />
         ))}
       </div>
     </div>

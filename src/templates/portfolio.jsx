@@ -7,8 +7,8 @@ import Gallery from '../components/ImageGrid'
 
 import './portfolio.scss';
 
-const PortfolioTemplate = ({ data}) => {
-  const { title, ogimg, small, large, desc, } = data.contentfulPortfolio
+const PortfolioTemplate = ({ data }) => {
+  const { title, ogimg, small, large, desc, slug } = data.contentfulPortfolio
   const [descExpand, setDescExpand] = useState(false);
   const expandText = () => {
     setDescExpand(!descExpand)
@@ -52,6 +52,7 @@ const PortfolioTemplate = ({ data}) => {
         <Gallery
           thumbs={thumbs}
           full={full}
+          slug={slug}
           // itemsPerRow={[1, 2]}
         />
       </Section>
@@ -72,6 +73,7 @@ export const pageQuery = graphql`
     contentfulPortfolio(id: { eq: $id }) {
       id
       title
+      slug
       desc: childContentfulPortfolioDescriptionTextNode {
         description
       }
