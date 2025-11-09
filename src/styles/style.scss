@@ -94,32 +94,6 @@ h4  {
   }
 }
 
-.btn__group {
-  display: flex;
-  justify-content: center;
-  li {
-    + li {
-      margin-left: -2px;
-      position: relative;
-    }
-    &:nth-last-child(2),
-    &:nth-last-child(2) ~ li {
-      &:first-child {
-        .button {
-          border-top-right-radius: 0;
-          border-bottom-right-radius: 0;
-        }
-      }
-      &:last-child {
-        .button {
-          border-top-left-radius: 0;
-          border-bottom-left-radius: 0;
-        }
-      }
-    }
-  }
-}
-
 .iframe-video {
   width: 100%;
   aspect-ratio: 16 / 9;

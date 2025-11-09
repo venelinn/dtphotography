@@ -5,9 +5,9 @@
   "version": "0.1.0",
   "author": "Venelin Nikolov <venelinn@gmail.com>",
   "dependencies": {
+    "@biomejs/biome": "^2.3.4",
     "@contentful/rich-text-types": "^16.3.0",
     "dotenv": "^16.3.1",
-    "eslint-import-resolver-alias": "^1.1.2",
     "gatsby": "^5.14.0",
     "gatsby-awesome-pagination": "^0.3.8",
     "gatsby-core-utils": "^4.12.1",
@@ -57,17 +57,5 @@
   "browsersList": [
     ">1%",
     "last 2 versions"
-  ],
-  "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "eslint": "^8.2.0",
-    "eslint-config-airbnb": "^19.0.0",
-    "eslint-config-babel": "^9.0.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-react": "^7.27.2"
-  },
-  "engines": {
-    "node": "18.18.2"
-  }
+  ]
 }
