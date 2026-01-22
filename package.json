@@ -27,7 +27,7 @@
     "gatsby-transformer-json": "^5.12.0",
     "gatsby-transformer-sharp": "^5.12.3",
     "lightgallery": "^2.7.2",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "prop-types": "^15.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
