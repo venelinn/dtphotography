@@ -3,12 +3,13 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { chunk, sum } from 'lodash';
 import LightGallery from 'lightgallery/react';
 
-// If you want you can use SCSS instead of css
-import 'lightgallery/scss/lightgallery.scss';
-import 'lightgallery/scss/lg-zoom.scss';
-import 'lightgallery/scss/lg-autoplay.scss'
-import 'lightgallery/scss/lg-fullscreen.scss'
-import 'lightgallery/scss/lg-share.scss'
+// Use lightgallery's precompiled CSS. Its SCSS uses `@use`, which conflicts
+// with the global `additionalData` @import injected by gatsby-plugin-sass.
+import 'lightgallery/css/lightgallery.css';
+import 'lightgallery/css/lg-zoom.css';
+import 'lightgallery/css/lg-autoplay.css'
+import 'lightgallery/css/lg-fullscreen.css'
+import 'lightgallery/css/lg-share.css'
 
 // import plugins if you need
 // import lgThumbnail from 'lightgallery/plugins/thumbnail';
@@ -21,6 +22,7 @@ import lgHash from "lightgallery/plugins/hash";
 const Gallery = ({
   thumbs,
   full,
+  slug,
   itemsPerRow: itemsPerRowByBreakpoints = [2],
 }) => {
 
